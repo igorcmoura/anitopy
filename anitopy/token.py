@@ -31,21 +31,53 @@ class Token:
         )
 
 
-def find_previous_token(tokens, token_index, category=None,
-                        unwanted_categories=()):
-    for token in tokens[token_index-1::-1]:
-        if category and token.category != category:
-            continue
-        if token.category not in unwanted_categories:
-            return token
-    return None
+class Tokens:
+    INSTANCE = None
 
+    def __init__(self):
+        self._tokens = []
 
-def find_next_token(tokens, token_index, category=None,
-                    unwanted_categories=()):
-    for token in tokens[token_index+1:]:
-        if category and token.category != category:
-            continue
-        if token.category not in unwanted_categories:
-            return token
-    return None
+    @classmethod
+    def instance(cls):
+        if not cls.INSTANCE:
+            cls.INSTANCE = Tokens()
+        return cls.INSTANCE
+
+    @classmethod
+    def clear(cls):
+        del cls.INSTANCE
+        cls.INSTANCE = None
+
+    @classmethod
+    def empty(cls):
+        return len(cls.instance()._tokens) == 0
+
+    @classmethod
+    def append(cls, token):
+        cls.instance()._tokens.append(token)
+
+    @classmethod
+    def update(cls, tokens):
+        cls.instance()._tokens = tokens
+
+    @classmethod
+    def get_list(cls):
+        return cls.instance()._tokens
+
+    @classmethod
+    def find_previous(cls, token_index, category=None, unwanted_categories=()):
+        for token in cls.instance()._tokens[token_index-1::-1]:
+            if category and token.category != category:
+                continue
+            if token.category not in unwanted_categories:
+                return token
+        return None
+
+    @classmethod
+    def find_next(cls, token_index, category=None, unwanted_categories=()):
+        for token in cls.instance()._tokens[token_index+1:]:
+            if category and token.category != category:
+                continue
+            if token.category not in unwanted_categories:
+                return token
+        return None

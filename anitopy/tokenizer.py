@@ -2,22 +2,20 @@
 
 import re
 
-from anitopy.token import Token, TokenCategory
-from anitopy.token import find_previous_token, find_next_token
+from anitopy.token import TokenCategory, Token, Tokens
 
 
 class Tokenizer:
-    def __init__(self, filename, tokens, options):
+    def __init__(self, filename, options):
         self.filename = filename
-        self.tokens = tokens
         self.options = options
 
     def tokenize(self):
         self._tokenize_by_brackets()
-        return len(self.tokens) > 0
+        return not Tokens.empty()
 
     def _add_token(self, category, content, enclosed):
-        self.tokens.append(Token(category, content, enclosed))
+        Tokens.append(Token(category, content, enclosed))
 
     def _tokenize_by_brackets(self):
         brackets = [
@@ -83,14 +81,12 @@ class Tokenizer:
 
     def _validate_delimiter_tokens(self):
         def find_previous_valid_token(token_index):
-            return find_previous_token(
-                self.tokens, token_index,
-                unwanted_categories=[TokenCategory.INVALID])
+            return Tokens.find_previous(
+                token_index, unwanted_categories=[TokenCategory.INVALID])
 
         def find_next_valid_token(token_index):
-            return find_next_token(
-                self.tokens, token_index,
-                unwanted_categories=[TokenCategory.INVALID])
+            return Tokens.find_next(
+                token_index, unwanted_categories=[TokenCategory.INVALID])
 
         def is_delimiter_token(token):
             return token is not None and \
@@ -108,7 +104,7 @@ class Tokenizer:
             append_to.content += token.content
             token.category = TokenCategory.INVALID
 
-        for index, token in enumerate(self.tokens):
+        for index, token in enumerate(Tokens.get_list()):
             if token.category != TokenCategory.DELIMITER:
                 continue
             delimiter = token.content
@@ -161,10 +157,7 @@ class Tokenizer:
                         append_token_to(token, prev_token)
                         append_token_to(next_token, prev_token)  # e.g. "01+02"
 
-        # TODO: there must be a more elegant way to do it
-        new_tokens_list = [
-            token for token in self.tokens
+        Tokens.update([
+            token for token in Tokens.get_list()
             if token.category != TokenCategory.INVALID
-        ]
-        del self.tokens[:]
-        self.tokens.extend(new_tokens_list)
+        ])

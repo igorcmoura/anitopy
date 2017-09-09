@@ -4,17 +4,18 @@ from anitopy.element import Elements, ElementCategory
 from anitopy.keyword import keyword_manager
 from anitopy.options import default_options
 # from anitopy.parser import Parser
+from anitopy.token import Tokens
 from anitopy.tokenizer import Tokenizer
 
 
 def parse(filename, options=default_options):
-    elements = Elements()
-    tokens = []
+    Elements.clear()
+    Tokens.clear()
 
     if options.parse_file_extension:
         filename, extension = remove_extension_from_filename(filename)
-        if extension is not None:
-            elements.insert(ElementCategory.FILE_EXTENSION, extension)
+        if extension:
+            Elements.insert(ElementCategory.FILE_EXTENSION, extension)
 
     if options.ignored_strings:
         filename = remove_ignored_strings_from_filename(
@@ -23,18 +24,18 @@ def parse(filename, options=default_options):
 
     if not filename:
         return None
-    elements.insert(ElementCategory.FILE_NAME, filename)
+    Elements.insert(ElementCategory.FILE_NAME, filename)
 
-    tokenizer = Tokenizer(filename, tokens, options)
+    tokenizer = Tokenizer(filename, options)
     if not tokenizer.tokenize():
         return None
 
-    # parser = Parser(elements, tokens, options)
+    # parser = Parser(options)
     # if not parser.parse():
     #     return None
 
-    # return elements.get_dictionary()
-    return tokens
+    # return Elements.get_dictionary()
+    return Tokens.get_list()
 
 
 def remove_extension_from_filename(filename):

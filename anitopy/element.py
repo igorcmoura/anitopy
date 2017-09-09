@@ -71,15 +71,34 @@ class ElementCategory(Enum):
 
 
 class Elements:
+    INSTANCE = None
+
     def __init__(self):
         self._elements = {}
 
-    def insert(self, category, content):
-        self._elements.setdefault(category, []).append(content)
+    @classmethod
+    def instance(cls):
+        if not cls.INSTANCE:
+            cls.INSTANCE = Elements()
+        return cls.INSTANCE
 
-    def contains(self, category):
-        return bool(category in self._elements.keys() and
-                    self._elements[category])
+    @classmethod
+    def clear(cls):
+        del cls.INSTANCE
+        cls.INSTANCE = None
 
-    def get_dictionary(self):
-        return self._elements
+    @classmethod
+    def insert(cls, category, content):
+        if ElementCategory.is_singular(category):
+            cls.instance()._elements[category] = content
+        else:
+            cls.instance()._elements.setdefault(category, []).append(content)
+
+    @classmethod
+    def contains(cls, category):
+        return bool(category in cls.instance()._elements.keys() and
+                    cls.instance()._elements[category])
+
+    @classmethod
+    def get_dictionary(cls):
+        return cls.instance()._elements
