@@ -3,7 +3,7 @@
 from anitopy.element import Elements, ElementCategory
 from anitopy.keyword import keyword_manager
 from anitopy.options import default_options
-# from anitopy.parser import Parser
+from anitopy.parser import Parser
 from anitopy.token import Tokens
 from anitopy.tokenizer import Tokenizer
 
@@ -12,6 +12,7 @@ def parse(filename, options=default_options):
     Elements.clear()
     Tokens.clear()
 
+    Elements.insert(ElementCategory.FILE_NAME, filename)
     if options.parse_file_extension:
         filename, extension = remove_extension_from_filename(filename)
         if extension:
@@ -24,18 +25,16 @@ def parse(filename, options=default_options):
 
     if not filename:
         return None
-    Elements.insert(ElementCategory.FILE_NAME, filename)
 
     tokenizer = Tokenizer(filename, options)
     if not tokenizer.tokenize():
         return None
 
-    # parser = Parser(options)
-    # if not parser.parse():
-    #     return None
+    parser = Parser(options)
+    if not parser.parse():
+        return None
 
-    # return Elements.get_dictionary()
-    return Tokens.get_list()
+    return Elements.get_dictionary()
 
 
 def remove_extension_from_filename(filename):

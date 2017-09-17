@@ -89,16 +89,38 @@ class Elements:
 
     @classmethod
     def insert(cls, category, content):
-        if ElementCategory.is_singular(category):
-            cls.instance()._elements[category] = content
-        else:
-            cls.instance()._elements.setdefault(category, []).append(content)
+        cls.instance()._elements.setdefault(category.value, []).append(content)
+
+    @classmethod
+    def erase(cls, category):
+        del cls.instance()._elements[category.value]
+
+    @classmethod
+    def remove(cls, category, content):
+        elements = cls.instance()._elements
+        elements[category.value].remove(content)
+        if len(elements[category.value]) == 0:
+            del elements[category.value]
 
     @classmethod
     def contains(cls, category):
-        return bool(category in cls.instance()._elements.keys() and
-                    cls.instance()._elements[category])
+        return bool(category.value in cls.instance()._elements.keys() and
+                    cls.instance()._elements[category.value])
+
+    @classmethod
+    def empty(cls):
+        return not bool(cls.instance()._elements)
+
+    @classmethod
+    def get(cls, category):
+        return cls.instance()._elements.get(
+            category.value, '' if ElementCategory.is_singular(category) else [])
 
     @classmethod
     def get_dictionary(cls):
-        return cls.instance()._elements
+        # Convert single element lists to the element itself
+        elements = dict([
+            (category, value[0]) if len(value) == 1 else (category, value)
+            for category, value in cls.instance()._elements.items()
+        ])
+        return elements

@@ -2,7 +2,7 @@
 
 import re
 
-from anitopy.token import TokenCategory, Token, Tokens
+from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
 
 
 class Tokenizer:
@@ -80,13 +80,11 @@ class Tokenizer:
         self._validate_delimiter_tokens()
 
     def _validate_delimiter_tokens(self):
-        def find_previous_valid_token(token_index):
-            return Tokens.find_previous(
-                token_index, unwanted_categories=[TokenCategory.INVALID])
+        def find_previous_valid_token(token):
+            return Tokens.find_previous(token, TokenFlags.VALID)
 
-        def find_next_valid_token(token_index):
-            return Tokens.find_next(
-                token_index, unwanted_categories=[TokenCategory.INVALID])
+        def find_next_valid_token(token):
+            return Tokens.find_next(token, TokenFlags.VALID)
 
         def is_delimiter_token(token):
             return token is not None and \
@@ -104,29 +102,26 @@ class Tokenizer:
             append_to.content += token.content
             token.category = TokenCategory.INVALID
 
-        for index, token in enumerate(Tokens.get_list()):
+        for token in Tokens.get_list():
             if token.category != TokenCategory.DELIMITER:
                 continue
+
             delimiter = token.content
-            prev_token = find_previous_valid_token(index)
-            next_token = find_next_valid_token(index)
+            prev_token = find_previous_valid_token(token)
+            next_token = find_next_valid_token(token)
 
             # Check for single-character tokens to prevent splitting group
             # names, keywords, episode number, etc.
             if delimiter != ' ' and delimiter != '_':
                 if is_single_character_token(prev_token):
                     append_token_to(token, prev_token)
-                    next_token_index = index+1
                     while is_unknown_token(next_token):
                         append_token_to(next_token, prev_token)
-                        next_token = find_next_valid_token(next_token_index)
-                        next_token_index += 1
+                        next_token = find_next_valid_token(next_token)
                         if is_delimiter_token(next_token) and \
                                 next_token.content == delimiter:
                             append_token_to(next_token, prev_token)
-                            next_token = find_next_valid_token(
-                                next_token_index)
-                            next_token_index += 1
+                            next_token = find_next_valid_token(next_token)
                     continue
                 if is_single_character_token(next_token):
                     append_token_to(token, prev_token)
@@ -146,7 +141,7 @@ class Tokenizer:
                 next_delimiter = next_token.content
                 if prev_delimiter == next_delimiter and \
                         prev_delimiter != delimiter:
-                    is_unknown_token(token)  # e.g. "&" in "_&_"
+                    token.category = TokenCategory.UNKNOWN  # e.g. "&" in "_&_"
 
             # Check for other special cases
             if delimiter == '&' or delimiter == '+':
