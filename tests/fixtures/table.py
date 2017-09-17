@@ -1575,7 +1575,7 @@ table = [
             '2.0ch',
             'AAC'
         ],
-        'file_name': 'Byousoku 5 Centimeter [Blu-Ray][1920x1080 H.264][2.0ch AAC]  # noqa E501[SOFTSUBS]',
+        'file_name': 'Byousoku 5 Centimeter [Blu-Ray][1920x1080 H.264][2.0ch AAC][SOFTSUBS]',  # noqa E501
         'id': 1689,
         'source': 'Blu-Ray',
         'subtitles': 'SOFTSUBS',
