@@ -10,6 +10,7 @@ Anitopy is a python library for parsing anime video filenames.
 """
 
 from anitopy.anitopy import parse
+from anitopy.options import Options
 
 
-__all__ = ['parse']
+__all__ = ['parse', 'Options']
