@@ -6,7 +6,9 @@ Anitopy is a Python library for parsing anime video filenames. It's based on `An
 
 Example
 -------
-The following filename...::
+The following filename...
+
+::
 
     [TaigaSubs]_Toradora!_(2008)_-_01v2_-_Tiger_and_Dragon_[1280x720_H.264_FLAC][1234ABCD].mkv
 
