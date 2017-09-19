@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import unicodedata
+
 from anitopy.element import ElementCategory
 
 
@@ -142,7 +144,12 @@ class KeywordManager:
 
     @staticmethod
     def normalize(string):
-        return string.upper()
+        # Remove accents and other special symbols
+        nfkd = unicodedata.normalize('NFKD', string)
+        without_accents = ''.join(
+            [c for c in nfkd if not unicodedata.combining(c)])
+
+        return without_accents.upper()
 
     def _get_keyword_container(self, category):
         return self._file_extensions \

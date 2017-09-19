@@ -1,4 +1,5 @@
 table = [
+    # Tests took from anitomy on 19/09/2017 (day/month/year)
     [
         '[TaigaSubs]_Toradora!_(2008)_-_01v2_-_Tiger_and_Dragon_[1280x720_H.264_FLAC][1234ABCD].mkv',  # noqa E501
         None,
@@ -2442,6 +2443,19 @@ table = [
             'file_name': '[HorribleSubs] Momokuri - 01+02 [720p]',
             'release_group': 'HorribleSubs',
             'video_resolution': '720p'
+        }
+    ],
+
+###############################################################################
+    # Original tests
+    [
+        'Tsuredure Children Episódio 1 – Confession',
+        None,
+        {
+            'anime_title': 'Tsuredure Children',
+            'episode_number': '1',
+            'episode_title': 'Confession',
+            'file_name': 'Tsuredure Children Episódio 1 – Confession'  # noqa E501
         }
     ]
 ]
