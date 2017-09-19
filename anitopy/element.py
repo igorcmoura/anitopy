@@ -75,6 +75,15 @@ class Elements:
 
     def __init__(self):
         self._elements = {}
+        self._check_alt_number = False
+
+    @classmethod
+    def get_check_alt_number(cls):
+        return cls.instance()._check_alt_number
+
+    @classmethod
+    def set_check_alt_number(cls, value):
+        cls.instance()._check_alt_number = value
 
     @classmethod
     def instance(cls):

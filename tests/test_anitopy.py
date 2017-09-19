@@ -8,8 +8,7 @@ import anitopy
 FAILING_CASES = [
     4, 13, 19, 21, 28, 30, 36, 38, 51, 63, 68, 69, 70, 75, 77, 78, 80, 81, 82,
     87, 88, 90, 92, 97, 100, 102, 108, 110, 111, 112, 114, 118, 119, 120, 123,
-    126, 128, 129, 130, 136, 137, 142, 143, 144, 145, 148, 149, 155, 156, 162,
-    167, 172, 173, 174
+    126, 128, 129, 136, 137, 142, 143, 144, 145, 156, 162, 167, 174
 ]
 
 
@@ -33,20 +32,21 @@ class TestAnitopy(TestCase):
         working_tests = []
         for index in FAILING_CASES:
             entry = table[index]
-
             filename = entry['file_name']
+            print('Index %d "%s"' % (index, filename))
+
             elements = anitopy.parse(filename)
 
             expected = dict(entry)
             if 'id' in expected.keys():
                 del expected['id']
             try:
-                self.assertEqual(expected, elements, 'on entry number %d'
-                                                     % index)
+                self.assertEqual(expected, elements)
                 working_tests.append(index)
             except AssertionError as err:
                 failed += 1
                 print(err)
+                print('----------------------------------------------------------------------')  # noqa E501
 
         print('\nFailed %d of %d failing cases tests' % (
             failed, len(FAILING_CASES)))

@@ -32,18 +32,17 @@ def set_episode_number(number, token, validate):
 
     category = ElementCategory.EPISODE_NUMBER
 
-    # TODO
-    # # Handle equivalent numbers
-    # if check_alt_number:
-    #     # TODO: check if getting only the first episode number is enough
-    #     episode_number = Elements.get(ElementCategory.EPISODE_NUMBER)[0]
-    #     if str2int(number) > str2int(episode_number):
-    #         category = ElementCategory.EPISODE_NUMBER_ALT
-    #     elif str2int(number) < str2int(episode_number):
-    #         Elements.remove(ElementCategory.EPISODE_NUMBER, episode_number)
-    #         Elements.insert(ElementCategory.EPISODE_NUMBER_ALT, episode_number)
-    #     else:
-    #         return False
+    # Handle equivalent numbers
+    if Elements.get_check_alt_number():
+        # TODO: check if getting only the first episode number is enough
+        episode_number = Elements.get(ElementCategory.EPISODE_NUMBER)[0]
+        if str2int(number) > str2int(episode_number):
+            category = ElementCategory.EPISODE_NUMBER_ALT
+        elif str2int(number) < str2int(episode_number):
+            Elements.remove(ElementCategory.EPISODE_NUMBER, episode_number)
+            Elements.insert(ElementCategory.EPISODE_NUMBER_ALT, episode_number)
+        else:
+            return False
 
     Elements.insert(category, number)
     return True
@@ -379,7 +378,7 @@ def search_for_equivalent_numbers(tokens):
 
         # Find the first enclosed, non-delimiter token
         next_token = Tokens.find_next(token, TokenFlags.NOT_DELIMITER)
-        if next_token != TokenCategory.BRACKET:
+        if next_token is None or next_token.category != TokenCategory.BRACKET:
             continue
         next_token = Tokens.find_next(
             next_token, TokenFlags.ENCLOSED | TokenFlags.NOT_DELIMITER)

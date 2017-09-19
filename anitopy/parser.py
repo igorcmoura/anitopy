@@ -120,8 +120,8 @@ class Parser:
         if not tokens:
             return
 
-        # TODO
-        # check_alt_number = Elements.contains(ElementCategory.EPISODE_NUMBER)
+        Elements.set_check_alt_number(
+            Elements.contains(ElementCategory.EPISODE_NUMBER))
 
         # If a token matches a known episode pattern, it has to be the episode
         # number
