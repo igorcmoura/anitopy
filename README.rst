@@ -62,7 +62,7 @@ The :code:`parse` function can receive the parameter :code:`options`. E.g.:
         'file_name': 'DRAMAtical Murder Episode 1 - Data_01_Login'
     }
 
-If the default options had been used, the parser would have consider :code:`_` as a delimiter and remove it from the episode title.
+If the default options had been used, the parser would have considered :code:`_` as a delimiters and replaced it with spaces in the episode title.
 
 The options contain the following attributes:
 
