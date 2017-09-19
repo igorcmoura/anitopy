@@ -66,7 +66,9 @@ class Tokenizer:
                 text = ''
 
     def _tokenize_by_delimiters(self, text, enclosed):
-        pattern = '([{0}])'.format(self.options.allowed_delimiters)
+        delimiters = ''.join(
+            ['\\' + d for d in self.options.allowed_delimiters])
+        pattern = '([{0}])'.format(delimiters)
         splited_text = re.split(pattern, text)
 
         for sub_text in splited_text:
