@@ -3,9 +3,9 @@
 import re
 import unicodedata as ud
 
+from anitopy import parser_number
 from anitopy.element import ElementCategory, Elements
 from anitopy.token import TokenCategory, TokenFlags, Tokens
-from anitopy import parser_number
 
 DASHES = '-\u2010\u2011\u2012\u2013\u2014\u2015'
 

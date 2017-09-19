@@ -11,4 +11,5 @@ class Options:
         self.parse_file_extension = True
         self.parse_release_group = True
 
+
 default_options = Options()

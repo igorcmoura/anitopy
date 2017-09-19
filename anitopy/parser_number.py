@@ -2,10 +2,10 @@
 
 import re
 
+from anitopy import parser_helper
 from anitopy.element import ElementCategory, Elements
 from anitopy.keyword import keyword_manager
 from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
-from anitopy import parser_helper
 
 ANIME_YEAR_MIN = 1900
 ANIME_YEAR_MAX = 2050

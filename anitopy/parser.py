@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from anitopy import parser_helper, parser_number
 from anitopy.element import ElementCategory, Elements
 from anitopy.keyword import keyword_manager
-from anitopy import parser_helper, parser_number
 from anitopy.token import TokenCategory, TokenFlags, Tokens
 
 
