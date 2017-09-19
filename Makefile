@@ -8,7 +8,7 @@ build-dist:
 	python setup.py sdist
 
 upload-pypi: build-dist
-	twine upload dist/*
+	twine upload --skip-existing dist/*
 
 upload-pypitest: build-dist
-	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	twine upload --skip-existing --repository-url https://test.pypi.org/legacy/ dist/*
