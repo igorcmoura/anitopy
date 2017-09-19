@@ -445,8 +445,10 @@ table = [
         None,
         {
             'anime_title': 'Ghost in the Shell Stand Alone Complex 2nd GIG',
-            'audio_term': ['AAC',
-            '5.1'],
+            'audio_term': [
+                'AAC',
+                '5.1'
+            ],
             'episode_number': '05',
             'episode_title': 'EXCAVATION',
             'file_extension': 'mkv',
@@ -463,8 +465,10 @@ table = [
         None,
         {
             'anime_title': 'Ghost in the Shell Stand Alone Complex 2nd GIG',
-            'audio_term': ['AAC',
-            '5.1'],
+            'audio_term': [
+                'AAC',
+                '5.1'
+            ],
             'episode_number': '06',
             'episode_title': 'Pu239',
             'file_extension': 'mkv',
@@ -628,8 +632,10 @@ table = [
         None,
         {
             'anime_title': 'Detective Conan',
-            'episode_number': ['316',
-            '317'],
+            'episode_number': [
+                '316',
+                '317'
+            ],
             'file_checksum': '2411959B',
             'file_extension': 'mkv',
             'file_name': 'Detective Conan - 316-317 [DCTP][2411959B].mkv',
@@ -652,8 +658,10 @@ table = [
         None,
         {
             'anime_title': 'To Aru Kagaku no Railgun',
-            'episode_number': ['13',
-            '15'],
+            'episode_number': [
+                '13',
+                '15'
+            ],
             'file_name': 'To_Aru_Kagaku_no_Railgun_13-15_[BD_1080p][AtsA]',
             'id': 6213,
             'release_group': 'AtsA',
@@ -717,8 +725,10 @@ table = [
         None,
         {
             'anime_title': 'Chrono Crusade',
-            'episode_number': ['1',
-            '5'],
+            'episode_number': [
+                '1',
+                '5'
+            ],
             'file_name': 'Chrono Crusade ep. 1-5',
             'id': 60
         }
@@ -1020,8 +1030,10 @@ table = [
             'release_group': 'Hien',
             'source': 'BD',
             'video_resolution': '1080p',
-            'video_term': ['H.264',
-            '10-bit']
+            'video_term': [
+                'H.264',
+                '10-bit'
+            ]
         }
     ], [
         '[R-R] Diebuster.EP1 (720p.Hi10p.AC3) [82E36A36].mkv',
@@ -1051,8 +1063,10 @@ table = [
             'id': 949,
             'release_group': 'KAA',
             'source': 'BD',
-            'video_term': ['H264',
-            '10bit']
+            'video_term': [
+                'H264',
+                '10bit'
+            ]
         }
     ], [
         '[Rakuda].Gift.~eternal.rainbow~.01.dvd.h.264.vorbis.mkv',
@@ -1094,8 +1108,10 @@ table = [
             'subtitles': 'Big5',
             'release_group': 'SEED',
             'video_resolution': '720p',
-            'video_term': ['HD',
-            'AVC']
+            'video_term': [
+                'HD',
+                'AVC'
+            ]
         }
     ], [
         '「K」 Image Blu-ray WHITE & BLACK - Main (BD 1280x720 AVC AAC).mp4',
@@ -1106,8 +1122,10 @@ table = [
             'file_extension': 'mp4',
             'file_name': '「K」 Image Blu-ray WHITE & BLACK - Main (BD 1280x720 AVC AAC).mp4',  # noqa E501
             'id': 14467,
-            'source': ['Blu-ray',
-            'BD'],
+            'source': [
+                'Blu-ray',
+                'BD'
+            ],
             'video_resolution': '1280x720',
             'video_term': 'AVC'
         }
@@ -1261,8 +1279,10 @@ table = [
         {
             'anime_title': 'Evangelion Shin Gekijouban Q',
             'anime_type': 'Gekijouban',
-            'audio_term': ['FLACx2',
-            '5.1ch'],
+            'audio_term': [
+                'FLACx2',
+                '5.1ch'
+            ],
             'file_extension': 'mkv',
             'file_name': 'Evangelion Shin Gekijouban Q (BDrip 1920x1080 x264 FLACx2 5.1ch)-ank.mkv',  # noqa E501
             'id': 3785,
@@ -1291,8 +1311,10 @@ table = [
         {
             'anime_title': 'Howl\'s Moving Castle',
             'anime_year': '2004',
-            'audio_term': ['flac',
-            'dts'],
+            'audio_term': [
+                'flac',
+                'dts'
+            ],
             'file_extension': 'mkv',
             'file_name': 'Howl\'s_Moving_Castle_(2004)_[1080p,BluRay,flac,dts,x264]_-_THORA v2.mkv',  # noqa E501
             'id': 431,
@@ -1528,8 +1550,10 @@ table = [
         None,
         {
             'anime_title': 'Tsukimonogatari',
-            'episode_number': ['01',
-            '04'],
+            'episode_number': [
+                '01',
+                '04'
+            ],
             'file_extension': 'mkv',
             'file_name': '[HorribleSubs] Tsukimonogatari - (01-04) [1080p].mkv',  # noqa E501
             'id': 28025,
@@ -1557,8 +1581,10 @@ table = [
         {
             'anime_title': 'White Album',
             'audio_term': 'FLAC',
-            'episode_number': ['1',
-            '13'],
+            'episode_number': [
+                '1',
+                '13'
+            ],
             'file_name': '[Coalgirls]_White_Album_1-13_(1280×720_Blu-Ray_FLAC)',  # noqa E501
             'id': 4720,
             'release_group': 'Coalgirls',
@@ -1600,15 +1626,19 @@ table = [
         None,
         {
             'anime_title': 'Sword Art Online Extra Edition',
-            'audio_term': ['Dual Audio',
-            'Vorbis'],
+            'audio_term': [
+                'Dual Audio',
+                'Vorbis'
+            ],
             'file_name': '[CH] Sword Art Online Extra Edition Dual Audio [BD 480p][10bitH.264+Vorbis]',  # noqa E501
             'id': 20021,
             'release_group': 'CH',
             'source': 'BD',
             'video_resolution': '480p',
-            'video_term': ['H.264',
-            '10bit']
+            'video_term': [
+                'H.264',
+                '10bit'
+            ]
         }
     ], [
         'EvoBot.[Watakushi]_Akuma_no_Riddle_-_01v2_[720p][69A307A2].mkv',
@@ -1817,8 +1847,10 @@ table = [
             'release_group': 'Kira-Fansub',
             'source': 'BD',
             'video_resolution': '1280x960',
-            'video_term': ['H264',
-            '24fps']
+            'video_term': [
+                'H264',
+                '24fps'
+            ]
         }
     ], [
         '[ANE] Yosuga no Sora - Ep01 Preview (Yorihime ver) [BDRip 1080p x264 FLAC].mkv',  # noqa E501
@@ -1903,8 +1935,10 @@ table = [
         {
             'anime_title': 'Nekomonogatari (Black)',
             'audio_term': 'AAC',
-            'episode_number': ['1',
-            '4'],
+            'episode_number': [
+                '1',
+                '4'
+            ],
             'file_extension': 'mp4',
             'file_name': '[바카-Raws] Nekomonogatari (Black) #1-4 (BS11 1280x720 x264 AAC).mp4',  # noqa E501
             'id': 15689,
@@ -1976,8 +2010,10 @@ table = [
         None,
         {
             'anime_title': 'Byousoku 5 Centimeter',
-            'audio_term': ['2.0ch',
-            'AAC'],
+            'audio_term': [
+                '2.0ch',
+                'AAC'
+            ],
             'file_name': 'Byousoku 5 Centimeter [Blu-Ray][1920x1080 H.264][2.0ch AAC][SOFTSUBS]',  # noqa E501
             'id': 1689,
             'source': 'Blu-Ray',
@@ -1998,8 +2034,10 @@ table = [
             'release_group': 'SubDESU-H',
             'release_information': 'Complete',
             'video_resolution': '720p',
-            'video_term': ['x264',
-            '8bit']
+            'video_term': [
+                'x264',
+                '8bit'
+            ]
         }
     ], [
         'Cyborg 009 (1968) [TSHS] episode 06 [30C15D62].mp4',
@@ -2047,8 +2085,10 @@ table = [
         None,
         {
             'anime_title': 'Love Live! The School Idol Movie - PV',
-            'anime_type': ['Movie',
-            'PV'],
+            'anime_type': [
+                'Movie',
+                'PV'
+            ],
             'file_checksum': 'D1A15D2C',
             'file_extension': 'mkv',
             'file_name': '[FFF] Love Live! The School Idol Movie - PV [D1A15D2C].mkv',  # noqa E501
