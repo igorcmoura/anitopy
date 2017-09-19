@@ -62,3 +62,4 @@ def remove_extension_from_filename(filename):
 def remove_ignored_strings_from_filename(filename, ignored_strings):
     for string in ignored_strings:
         filename = filename.replace(string, '')
+    return filename
