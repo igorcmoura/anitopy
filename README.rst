@@ -44,6 +44,12 @@ To install Anitopy, simply use pip:
 
     $ pip install anitopy
 
+Or download the source code and inside the source code's folder run:
+
+.. code-block:: bash
+
+    $ python setup.py install
+
 Options
 -------
 
