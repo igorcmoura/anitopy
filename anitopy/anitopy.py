@@ -20,8 +20,7 @@ def parse(filename, options=default_options):
 
     if options.ignored_strings:
         filename = remove_ignored_strings_from_filename(
-            filename, options.ignored_strings
-        )
+            filename, options.ignored_strings)
 
     if not filename:
         return None

@@ -54,12 +54,12 @@ class Tokenizer:
             if bracket_index != 0:  # Found a token before the bracket
                 self._tokenize_by_delimiters(
                     text[:bracket_index] if bracket_index != -1 else text,
-                    is_bracket_open
+                    enclosed=is_bracket_open
                 )
 
             if bracket_index != -1:  # Found bracket
                 self._add_token(
-                    TokenCategory.BRACKET, text[bracket_index], True)
+                    TokenCategory.BRACKET, text[bracket_index], enclosed=True)
                 is_bracket_open = not is_bracket_open
                 text = text[bracket_index+1:]
             else:  # Reached the end

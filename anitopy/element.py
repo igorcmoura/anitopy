@@ -123,7 +123,8 @@ class Elements:
     @classmethod
     def get(cls, category):
         return cls.instance()._elements.get(
-            category.value, '' if ElementCategory.is_singular(category) else [])
+            category.value, '' if ElementCategory.is_singular(category)
+            else [])
 
     @classmethod
     def get_dictionary(cls):

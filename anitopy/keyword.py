@@ -21,10 +21,12 @@ class Keyword:
 class KeywordManager:
     def __init__(self):
         options_default = KeywordOption()
-        options_invalid = KeywordOption(True, True, False)
-        options_unidentifiable = KeywordOption(False, True, True)
-        options_unidentifiable_invalid = KeywordOption(False, True, False)
-        options_unidentifiable_unsearchable = KeywordOption(False, False, True)
+        options_invalid = KeywordOption(valid=False)
+        options_unidentifiable = KeywordOption(identifiable=False)
+        options_unidentifiable_invalid = KeywordOption(identifiable=False,
+                                                       valid=False)
+        options_unidentifiable_unsearchable = KeywordOption(identifiable=False,
+                                                            searchable=False)
 
         self._file_extensions = {}
         self._keys = {}
