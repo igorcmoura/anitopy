@@ -55,7 +55,7 @@ def is_dash_character(string):
 
 def is_latin_char(char):
     return is_latin_char.cache.setdefault(char, 'LATIN' in ud.name(char))
-is_latin_char.cache = {}  # noqa E305
+is_latin_char.cache = {}  # noqa: E305
 
 
 def is_mostly_latin_string(string):
