@@ -2,6 +2,7 @@
 
 import re
 
+from anitopy.keyword import keyword_manager
 from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
 
 
@@ -52,7 +53,7 @@ class Tokenizer:
                 bracket_index = text.find(matching_bracket)
 
             if bracket_index != 0:  # Found a token before the bracket
-                self._tokenize_by_delimiters(
+                self._tokenize_by_preidentified(
                     text[:bracket_index] if bracket_index != -1 else text,
                     enclosed=is_bracket_open
                 )
@@ -64,6 +65,24 @@ class Tokenizer:
                 text = text[bracket_index+1:]
             else:  # Reached the end
                 text = ''
+
+    def _tokenize_by_preidentified(self, text, enclosed):
+        preidentified_tokens = keyword_manager.peek(text)
+
+        last_token_end_pos = 0
+        for token_begin_pos, token_end_pos in preidentified_tokens:
+            if last_token_end_pos != token_begin_pos:
+                # Tokenize the text between the preidentified tokens
+                self._tokenize_by_delimiters(
+                    text[last_token_end_pos:token_begin_pos], enclosed)
+            self._add_token(TokenCategory.IDENTIFIER, enclosed,
+                            text[token_begin_pos:token_end_pos])
+            last_token_end_pos = token_end_pos
+
+        if last_token_end_pos != len(text):
+            # Tokenize the text after the preidentified tokens (or all the text
+            # if there was no preidentified tokens)
+            self._tokenize_by_delimiters(text[last_token_end_pos:], enclosed)
 
     def _tokenize_by_delimiters(self, text, enclosed):
         delimiters = ''.join(
