@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Identify some elements during tokenization. This cover some cases where some keywords are separated by uncommon delimiters or no delimiters at all creating tokens that doesn't match with any keyword.
+
 ### Fixed
 - Remove accents from strings before trying to match it with a keyword.
 

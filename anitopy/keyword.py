@@ -2,7 +2,7 @@
 
 import unicodedata as ud
 
-from anitopy.element import ElementCategory
+from anitopy.element import ElementCategory, Elements
 
 
 class KeywordOption:
@@ -143,6 +143,29 @@ class KeywordManager:
                 keyword.category != category:
             return None
         return keyword
+
+    @staticmethod
+    def peek(string):
+        entries = [
+            (ElementCategory.AUDIO_TERM, ['Dual Audio']),
+            (ElementCategory.VIDEO_TERM, ['H264', 'H.264', 'h264', 'h.264']),
+            (ElementCategory.VIDEO_RESOLUTION, ['480p', '720p', '1080p']),
+            (ElementCategory.SOURCE, ['Blu-Ray'])
+        ]
+
+        preidentified_tokens = []
+
+        for category, keywords in entries:
+            for keyword in keywords:
+                keyword_begin_pos = string.find(keyword)
+                if keyword_begin_pos != -1:  # Found the keyword in the string
+                    Elements.insert(category, keyword)
+
+                    keyword_end_pos = keyword_begin_pos + len(keyword)
+                    preidentified_tokens.append(
+                        (keyword_begin_pos, keyword_end_pos))
+
+        return sorted(preidentified_tokens)
 
     @staticmethod
     def normalize(string):
