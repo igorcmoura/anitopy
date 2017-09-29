@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='anitopy',
     packages=['anitopy'],
-    version='0.2.0',
+    version='0.3.0',
     description='An anime video filename parser',
     author='Igor Cescon de Moura',
     author_email='igorcesconm@gmail.com',
