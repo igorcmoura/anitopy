@@ -2,7 +2,7 @@
 Anitopy
 =======
 
-Anitopy is a Python library for parsing anime video filenames. It's based on `Anitomy <https://github.com/erengy/anitomy>`_.
+Anitopy is a Python library for parsing anime video filenames. It's simple to use and it's based on the C++ library `Anitomy <https://github.com/erengy/anitomy>`_.
 
 Example
 -------
@@ -33,7 +33,7 @@ The following filename...
         'video_term': 'H.264'
     }
 
-The :code:`parse` function receives a string and returns a dictionary containing all found elements. It can also receive parsing options, we will explain this below.
+The :code:`parse` function receives a string and returns a dictionary containing all found elements. It can also receive parsing options, this will be explained below.
 
 Installation
 ------------
@@ -53,7 +53,7 @@ Or download the source code and inside the source code's folder run:
 Options
 -------
 
-The :code:`parse` function can receive the parameter :code:`options`. E.g.:
+The :code:`parse` function can receive the :code:`options` parameter. E.g.:
 
 .. code-block:: python
 
@@ -68,7 +68,7 @@ The :code:`parse` function can receive the parameter :code:`options`. E.g.:
         'file_name': 'DRAMAtical Murder Episode 1 - Data_01_Login'
     }
 
-If the default options had been used, the parser would have considered :code:`_` as a delimiters and replaced it with spaces in the episode title.
+If the default options had been used, the parser would have considered :code:`_` as a delimiter and replaced it with space in the episode title.
 
 The options contain the following attributes:
 
