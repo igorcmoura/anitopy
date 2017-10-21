@@ -62,13 +62,13 @@ class Parser:
                     continue
                 elif category == ElementCategory.EPISODE_PREFIX:
                     if keyword.options.valid:
-                        parser_helper.check_extent_keyword(
+                        parser_number.check_extent_keyword(
                             ElementCategory.EPISODE_NUMBER, token)
                     continue
                 elif category == ElementCategory.RELEASE_VERSION:
                     word = word[1:]  # number without "v"
                 elif category == ElementCategory.VOLUME_PREFIX:
-                    parser_helper.check_extent_keyword(
+                    parser_number.check_extent_keyword(
                         ElementCategory.VOLUME_NUMBER, token)
                     continue
             else:

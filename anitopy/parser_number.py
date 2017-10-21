@@ -54,6 +54,31 @@ def set_alternative_episode_number(number, token):
 
     return True
 
+
+def check_extent_keyword(category, token):
+    next_token = Tokens.find_next(token, TokenFlags.NOT_DELIMITER)
+
+    if next_token.category == TokenCategory.UNKNOWN:
+        if next_token and \
+                parser_helper.find_number_in_string(next_token.content) \
+                is not None:
+            if category == ElementCategory.EPISODE_NUMBER:
+                if not match_episode_patterns(
+                        next_token.content, next_token):
+                    set_episode_number(
+                        next_token.content, next_token, validate=False)
+            elif category == ElementCategory.VOLUME_NUMBER:
+                if not match_volume_patterns(
+                        next_token.content, next_token):
+                    set_volume_number(
+                        next_token.content, next_token, validate=False)
+            else:
+                return False
+            token.category = TokenCategory.IDENTIFIER
+            return True
+
+    return False
+
 ###############################################################################
 
 

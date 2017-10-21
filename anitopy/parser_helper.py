@@ -3,7 +3,6 @@
 import re
 import unicodedata as ud
 
-from anitopy import parser_number
 from anitopy.element import ElementCategory, Elements
 from anitopy.token import TokenCategory, TokenFlags, Tokens
 
@@ -87,30 +86,6 @@ def check_anime_season_keyword(token):
     if next_token and next_token.content.isdigit():
         set_anime_season(token, next_token, next_token.content)
         return True
-
-    return False
-
-
-def check_extent_keyword(category, token):
-    next_token = Tokens.find_next(token, TokenFlags.NOT_DELIMITER)
-
-    if next_token.category == TokenCategory.UNKNOWN:
-        if next_token and \
-                find_number_in_string(next_token.content) is not None:
-            if category == ElementCategory.EPISODE_NUMBER:
-                if not parser_number.match_episode_patterns(
-                        next_token.content, next_token):
-                    parser_number.set_episode_number(
-                        next_token.content, next_token, validate=False)
-            elif category == ElementCategory.VOLUME_NUMBER:
-                if not parser_number.match_volume_patterns(
-                        next_token.content, next_token):
-                    parser_number.set_volume_number(
-                        next_token.content, next_token, validate=False)
-            else:
-                return False
-            token.category = TokenCategory.IDENTIFIER
-            return True
 
     return False
 
