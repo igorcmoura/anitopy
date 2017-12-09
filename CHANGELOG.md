@@ -5,8 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.0] - 2017-12-09
 ## Changed
-- Options is now passed as a dictionary.
+- Options are now passed as a dictionary.
 
 ## [0.3.0] - 2017-09-29
 ### Added
@@ -31,7 +33,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Working parser for the majority of anime filenames.
 
-[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/igorcmoura/anitopy/compare/v0.3.0...v1.0.0
 [0.3.0]: https://github.com/igorcmoura/anitopy/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/igorcmoura/anitopy/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/igorcmoura/anitopy/compare/v0.1.0...v0.1.1
