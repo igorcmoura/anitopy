@@ -15,16 +15,16 @@ class Parser:
 
         self.search_for_isolated_numbers()
 
-        if self.options.parse_episode_number:
+        if self.options['parse_episode_number']:
             self.search_for_episode_number()
 
         self.search_for_anime_title()
 
-        if self.options.parse_release_group and \
+        if self.options['parse_release_group'] and \
                 not Elements.contains(ElementCategory.RELEASE_GROUP):
             self.search_for_release_group()
 
-        if self.options.parse_episode_title and \
+        if self.options['parse_episode_title'] and \
                 Elements.contains(ElementCategory.EPISODE_NUMBER):
             self.search_for_episode_title()
 
@@ -47,7 +47,7 @@ class Parser:
             keyword = keyword_manager.find(keyword_manager.normalize(word))
             if keyword:
                 category = keyword.category
-                if not self.options.parse_release_group and \
+                if not self.options['parse_release_group'] and \
                         category == ElementCategory.RELEASE_GROUP:
                     continue
                 if not ElementCategory.is_searchable(category) or \

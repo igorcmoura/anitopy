@@ -2,25 +2,38 @@
 
 from anitopy.element import Elements, ElementCategory
 from anitopy.keyword import keyword_manager
-from anitopy.options import default_options
 from anitopy.parser import Parser
 from anitopy.token import Tokens
 from anitopy.tokenizer import Tokenizer
+
+
+default_options = {
+    'allowed_delimiters': ' _.&+,|',
+    'ignored_strings': [],
+    'parse_episode_number': True,
+    'parse_episode_title': True,
+    'parse_file_extension': True,
+    'parse_release_group': True
+}
 
 
 def parse(filename, options=default_options):
     Elements.clear()
     Tokens.clear()
 
+    # Add missing options
+    for key, value in default_options.items():
+        options.setdefault(key, value)
+
     Elements.insert(ElementCategory.FILE_NAME, filename)
-    if options.parse_file_extension:
+    if options['parse_file_extension']:
         filename, extension = remove_extension_from_filename(filename)
         if extension:
             Elements.insert(ElementCategory.FILE_EXTENSION, extension)
 
-    if options.ignored_strings:
+    if options['ignored_strings']:
         filename = remove_ignored_strings_from_filename(
-            filename, options.ignored_strings)
+            filename, options['ignored_strings'])
 
     if not filename:
         return None

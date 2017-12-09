@@ -58,8 +58,7 @@ The :code:`parse` function can receive the :code:`options` parameter. E.g.:
 .. code-block:: python
 
     >>> import anitopy
-    >>> anitopy_options = anitopy.Options()
-    >>> anitopy_options.allowed_delimiters = ' '
+    >>> anitopy_options = {'allowed_delimiters': ' '}
     >>> anitopy.parse('DRAMAtical Murder Episode 1 - Data_01_Login', options=anitopy_options)
     {
         'anime_title': 'DRAMAtical Murder',

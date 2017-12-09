@@ -86,13 +86,13 @@ class Tokenizer:
 
     def _tokenize_by_delimiters(self, text, enclosed):
         delimiters = ''.join(
-            ['\\' + d for d in self.options.allowed_delimiters])
+            ['\\' + d for d in self.options['allowed_delimiters']])
         pattern = '([{0}])'.format(delimiters)
         splited_text = re.split(pattern, text)
 
         for sub_text in splited_text:
             if sub_text:
-                if sub_text in self.options.allowed_delimiters:
+                if sub_text in self.options['allowed_delimiters']:
                     self._add_token(
                         TokenCategory.DELIMITER, sub_text, enclosed)
                 else:

@@ -3,7 +3,6 @@
 from unittest import TestCase
 
 import anitopy
-from anitopy.options import Options, default_options
 from tests.fixtures.table import table
 
 FAILING_CASES = [
@@ -16,22 +15,12 @@ FAILING_CASES = [
 class TestAnitopy(TestCase):
     def parse_options(self, entry_options):
         if entry_options is None:
-            return default_options
+            return {}
 
-        options = Options()
+        options = {}
         for option, value in entry_options.items():
-            if option == 'option_allowed_delimiters':
-                options.allowed_delimiters = value
-            if option == 'option_ignored_strings':
-                options.ignored_strings = value
-            if option == 'option_parse_episode_number':
-                options.parse_episode_number = value
-            if option == 'option_parse_episode_title':
-                options.parse_episode_title = value
-            if option == 'option_parse_file_extension':
-                options.parse_file_extension = value
-            if option == 'option_parse_release_group':
-                options.parse_release_group = value
+            option_name = option.split('option_')[1]
+            options[option_name] = value
         return options
 
     def test_table(self):
