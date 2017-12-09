@@ -1,4 +1,8 @@
+import sys
 from distutils.core import setup
+
+if sys.version_info < (3, 5):
+    sys.exit('Python 3.5 or above is required.')
 
 setup(
     name='anitopy',
