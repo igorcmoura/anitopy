@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 table = [
     # Tests took from anitomy on 19/09/2017 (day/month/year)
     [

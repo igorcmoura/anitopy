@@ -3,7 +3,7 @@
 from unittest import TestCase
 
 import anitopy
-from tests.fixtures.table import table
+from fixtures.table import table
 
 FAILING_CASES = [
     4, 13, 21, 28, 38, 63, 68, 69, 70, 75, 77, 80, 81, 82, 87, 90, 92, 97, 100,
