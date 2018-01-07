@@ -16,7 +16,7 @@ VOLUME_NUMBER_MAX = 20
 # https://stackoverflow.com/a/30212799
 def fullmatch(regex, string, flags=0):
     try:
-		match = re.fullmatch(regex, string, flags)
+        match = re.fullmatch(regex, string, flags)
     except:
         match = re.match("(?:" + regex + r")\Z", string, flags=flags)
 
