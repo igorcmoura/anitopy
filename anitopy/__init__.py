@@ -9,7 +9,7 @@ Anitopy is a python library for parsing anime video filenames.
 :license: Mozilla Public License Version 2.0, see LICENSE for more details.
 """
 
-from anitopy.anitopy import parse
+from .anitopy import parse
 
 
 __all__ = ['parse']

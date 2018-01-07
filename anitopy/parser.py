@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from anitopy import parser_helper, parser_number
-from anitopy.element import ElementCategory, Elements
-from anitopy.keyword import keyword_manager
-from anitopy.token import TokenCategory, TokenFlags, Tokens
+from . import parser_helper, parser_number
+
+from .element import ElementCategory, Elements
+from .keyword import keyword_manager
+from .token import TokenCategory, TokenFlags, Tokens
 
 
 class Parser:

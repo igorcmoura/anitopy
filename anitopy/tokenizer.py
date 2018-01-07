@@ -2,8 +2,8 @@
 
 import re
 
-from anitopy.keyword import keyword_manager
-from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
+from .keyword import keyword_manager
+from .token import TokenCategory, TokenFlags, Token, Tokens
 
 
 class Tokenizer:

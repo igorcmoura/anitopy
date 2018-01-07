@@ -3,8 +3,8 @@
 import re
 import unicodedata as ud
 
-from anitopy.element import ElementCategory, Elements
-from anitopy.token import TokenCategory, TokenFlags, Tokens
+from .element import ElementCategory, Elements
+from .token import TokenCategory, TokenFlags, Tokens
 
 DASHES = '-\u2010\u2011\u2012\u2013\u2014\u2015'
 
@@ -66,7 +66,14 @@ def is_mostly_latin_string(string):
 
 def is_resolution(string):
     pattern = '\\d{3,4}([pP]|([xX\u00D7]\\d{3,4}))'
-    return bool(re.fullmatch(pattern, string))
+
+    try:
+        match = re.fullmatch(pattern, string)
+    except:
+        # https://stackoverflow.com/a/30212799
+        match = re.match("(?:" + pattern + r")\Z", string)
+
+    return bool(match)
 
 
 def check_anime_season_keyword(token):

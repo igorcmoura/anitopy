@@ -2,10 +2,11 @@
 
 import re
 
-from anitopy import parser_helper
-from anitopy.element import ElementCategory, Elements
-from anitopy.keyword import keyword_manager
-from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
+from . import parser_helper
+
+from .element import ElementCategory, Elements
+from .keyword import keyword_manager
+from .token import TokenCategory, TokenFlags, Token, Tokens
 
 ANIME_YEAR_MIN = 1900
 ANIME_YEAR_MAX = 2050
@@ -148,7 +149,13 @@ def search_for_episode_patterns(tokens):
 
 def match_single_episode_pattern(word, token):
     pattern = '(\\d{1,3})[vV](\\d)'
-    match = re.fullmatch(pattern, word)
+
+    try:
+        match = re.fullmatch(pattern, word)
+    except:
+        # https://stackoverflow.com/a/30212799
+        match = re.match("(?:" + pattern + r")\Z", word)
+
     if match:
         set_episode_number(match.group(1), token, validate=False)
         Elements.insert(ElementCategory.RELEASE_VERSION, match.group(2))

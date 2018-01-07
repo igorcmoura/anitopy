@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from anitopy.element import Elements, ElementCategory
-from anitopy.keyword import keyword_manager
-from anitopy.parser import Parser
-from anitopy.token import Tokens
-from anitopy.tokenizer import Tokenizer
+from .element import Elements, ElementCategory
+from .keyword import keyword_manager
+from .parser import Parser
+from .token import Tokens
+from .tokenizer import Tokenizer
 
 
 default_options = {
