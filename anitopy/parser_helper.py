@@ -53,6 +53,12 @@ def is_dash_character(string):
 
 
 def is_latin_char(char):
+    if type(char) == str:
+        try:
+            char = unicode(char, 'utf-8')
+        except:
+            pass
+
     return is_latin_char.cache.setdefault(char, 'LATIN' in ud.name(char))
 is_latin_char.cache = {}  # noqa: E305
 
