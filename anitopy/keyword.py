@@ -173,7 +173,7 @@ class KeywordManager:
 
         if type(string) == str:
             try:
-                string = unicode(string)
+                string = unicode(string, 'utf-8')
             except:
                 pass
 
