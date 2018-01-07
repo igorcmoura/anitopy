@@ -13,6 +13,14 @@ ANIME_YEAR_MAX = 2050
 EPISODE_NUMBER_MAX = ANIME_YEAR_MIN - 1
 VOLUME_NUMBER_MAX = 20
 
+# https://stackoverflow.com/a/30212799
+def fullmatch(regex, string, flags=0):
+    try:
+		match = re.fullmatch(regex, string, flags)
+    except:
+        match = re.match("(?:" + regex + r")\Z", string, flags=flags)
+
+    return match
 
 def str2int(string):
     try:
@@ -149,13 +157,7 @@ def search_for_episode_patterns(tokens):
 
 def match_single_episode_pattern(word, token):
     pattern = '(\\d{1,3})[vV](\\d)'
-
-    try:
-        match = re.fullmatch(pattern, word)
-    except:
-        # https://stackoverflow.com/a/30212799
-        match = re.match("(?:" + pattern + r")\Z", word)
-
+    match = fullmatch(pattern, word)
     if match:
         set_episode_number(match.group(1), token, validate=False)
         Elements.insert(ElementCategory.RELEASE_VERSION, match.group(2))
@@ -166,7 +168,7 @@ def match_single_episode_pattern(word, token):
 
 def match_multi_episode_pattern(word, token):
     pattern = '(\\d{1,3})(?:[vV](\\d))?[-~&+](\\d{1,3})(?:[vV](\\d))?'
-    match = re.fullmatch(pattern, word)
+    match = fullmatch(pattern, word)
     if match:
         lower_bound = match.group(1)
         upper_bound = match.group(3)
@@ -188,7 +190,7 @@ def match_multi_episode_pattern(word, token):
 def match_season_and_episode_pattern(word, token):
     pattern = 'S?(\\d{1,2})(?:-S?(\\d{1,2}))?' +\
               '(?:x|[ ._-x]?E)(\\d{1,3})(?:-E?(\\d{1,3}))?'
-    match = re.fullmatch(pattern, word, flags=re.IGNORECASE)
+    match = fullmatch(pattern, word, flags=re.IGNORECASE)
 
     if match:
         Elements.insert(ElementCategory.ANIME_SEASON, match.group(1))
@@ -232,7 +234,7 @@ def match_fractional_episode_pattern(word, token):
     # cases where such a number is a part of the anime title (e.g. "Evangelion:
     # 1.11", "Tokyo Magnitude 8.0") or a keyword (e.g. "5.1").
     pattern = '\\d+\\.5'
-    match = re.fullmatch(pattern, word)
+    match = fullmatch(pattern, word)
     if match:
         if set_episode_number(word, token, validate=True):
             return True
@@ -259,7 +261,7 @@ def match_number_sign_pattern(word, token):
         return False
 
     pattern = '#(\\d{1,3})(?:[-~&+](\\d{1,3}))?(?:[vV](\\d))?'
-    match = re.fullmatch(pattern, word)
+    match = fullmatch(pattern, word)
 
     if match:
         if set_episode_number(match.group(1), token, validate=True):
@@ -278,7 +280,7 @@ def match_japanese_counter_pattern(word, token):
         return False
 
     pattern = '(\\d{1,3})\u8A71'
-    match = re.fullmatch(pattern, word)
+    match = fullmatch(pattern, word)
 
     if match:
         if set_episode_number(match.group(1), token, validate=False):
@@ -350,7 +352,7 @@ def set_volume_number(number, token, validate):
 
 def match_single_volume_pattern(word, token):
     pattern = '(\\d{1,2})[vV](\\d)'
-    match = re.fullmatch(pattern, word)
+    match = fullmatch(pattern, word)
 
     if match:
         set_volume_number(match.group(1), token, validate=False)
@@ -362,7 +364,7 @@ def match_single_volume_pattern(word, token):
 
 def match_multi_volume_pattern(word, token):
     pattern = '(\\d{1,2})[-~&+](\\d{1,2})(?:[vV](\\d))?'
-    match = re.fullmatch(pattern, word)
+    match = fullmatch(pattern, word)
 
     if match:
         lower_bound = match.group(1)
