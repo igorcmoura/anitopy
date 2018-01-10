@@ -15,6 +15,7 @@ ANIME_YEAR_MAX = 2050
 EPISODE_NUMBER_MAX = ANIME_YEAR_MIN - 1
 VOLUME_NUMBER_MAX = 20
 
+
 def str2int(string):
     try:
         return int(string)
