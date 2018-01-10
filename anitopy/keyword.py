@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals, absolute_import
+
 import unicodedata as ud
 
-from .element import ElementCategory, Elements
+from anitopy.element import ElementCategory, Elements
 
 
 class KeywordOption:
@@ -170,12 +172,6 @@ class KeywordManager:
     @staticmethod
     def normalize(string):
         # Remove accents and other special symbols
-
-        if type(string) == str:
-            try:
-                string = unicode(string, 'utf-8')
-            except:
-                pass
 
         nfkd = ud.normalize('NFKD', string)
         without_accents = ''.join([c for c in nfkd if not ud.combining(c)])

@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals, absolute_import
+
 import re
 import unicodedata as ud
 
-from .element import ElementCategory, Elements
-from .token import TokenCategory, TokenFlags, Tokens
+from anitopy.element import ElementCategory, Elements
+from anitopy.token import TokenCategory, TokenFlags, Tokens
 
 DASHES = '-\u2010\u2011\u2012\u2013\u2014\u2015'
 
@@ -53,12 +55,6 @@ def is_dash_character(string):
 
 
 def is_latin_char(char):
-    if type(char) == str:
-        try:
-            char = unicode(char, 'utf-8')
-        except:
-            pass
-
     return is_latin_char.cache.setdefault(char, 'LATIN' in ud.name(char))
 is_latin_char.cache = {}  # noqa: E305
 
@@ -71,15 +67,8 @@ def is_mostly_latin_string(string):
 
 
 def is_resolution(string):
-    pattern = '\\d{3,4}([pP]|([xX\u00D7]\\d{3,4}))'
-
-    try:
-        match = re.fullmatch(pattern, string)
-    except:
-        # https://stackoverflow.com/a/30212799
-        match = re.match("(?:" + pattern + r")\Z", string)
-
-    return bool(match)
+    pattern = '\\d{3,4}([pP]|([xX\u00D7]\\d{3,4}))$'
+    return bool(re.match(pattern, string))
 
 
 def check_anime_season_keyword(token):

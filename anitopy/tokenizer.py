@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals, absolute_import
+
 import re
 
-from .keyword import keyword_manager
-from .token import TokenCategory, TokenFlags, Token, Tokens
+from anitopy.keyword import keyword_manager
+from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
 
 
 class Tokenizer:

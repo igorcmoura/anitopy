@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 from unittest import TestCase
 
 import anitopy
-from fixtures.table import table
+from tests.fixtures.table import table
 
 FAILING_CASES = [
     4, 13, 21, 28, 38, 63, 68, 69, 70, 75, 77, 80, 81, 82, 87, 90, 92, 97, 100,
@@ -45,7 +47,11 @@ class TestAnitopy(TestCase):
             entry = table[index]
             filename = entry[0]
             options = self.parse_options(entry[1])
-            print('Index %d "%s"' % (index, filename))
+
+            try:
+                print('Index %d "%s"' % (index, filename))
+            except:
+                print(('Index %d "%s"' % (index, filename)).encode("utf-8"))
 
             elements = anitopy.parse(filename, options=options)
 
