@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals, absolute_import
+
 from anitopy.element import Elements, ElementCategory
 from anitopy.keyword import keyword_manager
 from anitopy.parser import Parser

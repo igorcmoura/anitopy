@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals, absolute_import
+
 import re
 import unicodedata as ud
 
@@ -65,8 +67,8 @@ def is_mostly_latin_string(string):
 
 
 def is_resolution(string):
-    pattern = '\\d{3,4}([pP]|([xX\u00D7]\\d{3,4}))'
-    return bool(re.fullmatch(pattern, string))
+    pattern = '\\d{3,4}([pP]|([xX\u00D7]\\d{3,4}))$'
+    return bool(re.match(pattern, string))
 
 
 def check_anime_season_keyword(token):

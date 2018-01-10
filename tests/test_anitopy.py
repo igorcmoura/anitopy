@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 from unittest import TestCase
 
 import anitopy
@@ -45,7 +47,11 @@ class TestAnitopy(TestCase):
             entry = table[index]
             filename = entry[0]
             options = self.parse_options(entry[1])
-            print('Index %d "%s"' % (index, filename))
+
+            try:
+                print('Index %d "%s"' % (index, filename))
+            except:
+                print(('Index %d "%s"' % (index, filename)).encode("utf-8"))
 
             elements = anitopy.parse(filename, options=options)
 
