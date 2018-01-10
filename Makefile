@@ -2,7 +2,7 @@ setup:
 	pip install -r requirements_dev.txt
 
 test:
-	python -m unittest
+	python -m unittest discover
 
 build-dist:
 	python setup.py sdist
