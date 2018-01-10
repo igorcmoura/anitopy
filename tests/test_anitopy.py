@@ -48,10 +48,7 @@ class TestAnitopy(TestCase):
             filename = entry[0]
             options = self.parse_options(entry[1])
 
-            try:
-                print('Index %d "%s"' % (index, filename))
-            except:
-                print(('Index %d "%s"' % (index, filename)).encode("utf-8"))
+            print('Index %d "%s"' % (index, filename))
 
             elements = anitopy.parse(filename, options=options)
 
