@@ -1,8 +1,4 @@
-import sys
 from distutils.core import setup
-
-if sys.version_info < (2, 7):
-    sys.exit('Python 2.7 or above is required.')
 
 setup(
     name='anitopy',
