@@ -172,7 +172,6 @@ class KeywordManager:
     @staticmethod
     def normalize(string):
         # Remove accents and other special symbols
-
         nfkd = ud.normalize('NFKD', string)
         without_accents = ''.join([c for c in nfkd if not ud.combining(c)])
 

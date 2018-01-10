@@ -5,7 +5,6 @@ from __future__ import unicode_literals, absolute_import
 import re
 
 from anitopy import parser_helper
-
 from anitopy.element import ElementCategory, Elements
 from anitopy.keyword import keyword_manager
 from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
