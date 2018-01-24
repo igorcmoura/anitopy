@@ -107,8 +107,8 @@ class KeywordManager:
             'WEBCAST', 'WEBRIP'])
 
         self.add(ElementCategory.SUBTITLES, options_default, [
-            'ASS', 'BIG5', 'DUB', 'DUBBED', 'HARDSUB', 'RAW', 'SOFTSUB',
-            'SOFTSUBS', 'SUB', 'SUBBED', 'SUBTITLED'])
+            'ASS', 'BIG5', 'DUB', 'DUBBED', 'HARDSUB', 'HARDSUBS', 'RAW',
+            'SOFTSUB', 'SOFTSUBS', 'SUB', 'SUBBED', 'SUBTITLED'])
 
         self.add(ElementCategory.VIDEO_TERM, options_default, [
             # Frame rate
