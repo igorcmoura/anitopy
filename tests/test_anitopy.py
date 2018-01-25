@@ -5,13 +5,7 @@ from __future__ import unicode_literals
 from unittest import TestCase
 
 import anitopy
-from tests.fixtures.table import table
-
-FAILING_CASES = [
-    4, 13, 21, 28, 38, 63, 68, 69, 70, 75, 77, 80, 81, 82, 87, 90, 92, 97, 100,
-    102, 110, 111, 112, 114, 120, 123, 128, 129, 136, 137, 142, 143, 145, 162,
-    167
-]
+from tests.fixtures.table import table, failing_table
 
 
 class TestAnitopy(TestCase):
@@ -27,9 +21,6 @@ class TestAnitopy(TestCase):
 
     def test_table(self):
         for index, entry in enumerate(table):
-            if index in FAILING_CASES:
-                continue
-
             filename = entry[0]
             options = self.parse_options(entry[1])
 
@@ -43,8 +34,7 @@ class TestAnitopy(TestCase):
     def test_fails(self):
         failed = 0
         working_tests = []
-        for index in FAILING_CASES:
-            entry = table[index]
+        for index, entry in enumerate(failing_table):
             filename = entry[0]
             options = self.parse_options(entry[1])
 
@@ -67,7 +57,7 @@ class TestAnitopy(TestCase):
                 print('----------------------------------------------------------------------')  # noqa E501
 
         print('\nFailed %d of %d failing cases tests' % (
-            failed, len(FAILING_CASES)))
+            failed, len(failing_table)))
         if working_tests:
             print('There are {} working tests from the failing cases: {}'
                   .format(len(working_tests), working_tests))
