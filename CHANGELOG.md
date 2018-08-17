@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.0] - 2018-08-16
+### Added
+- Support new keywords for audio, video and subtitles: EAC3, E-AC-3, Hardsubs, HEVC2, Hi444, Hi444P and Hi444PP.
+
+### Fixed
+- Add requirement for module enum34 for python below version 3.4.
+
 ## [1.1.0] - 2018-01-10
 ### Added
 - Support to python 2 with absolute imports and unicode strings. Also use regex match instead of fullmatch.
@@ -40,7 +47,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Working parser for the majority of anime filenames.
 
-[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/igorcmoura/anitopy/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/igorcmoura/anitopy/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/igorcmoura/anitopy/compare/v0.3.0...v1.0.1
 [0.3.0]: https://github.com/igorcmoura/anitopy/compare/v0.2.0...v0.3.0
