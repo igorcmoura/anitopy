@@ -1,4 +1,9 @@
+import sys
 from distutils.core import setup
+
+REQUIRED_PACKAGES = []
+if sys.version_info < (3, 4):
+    REQUIRED_PACKAGES.append('enum34')
 
 setup(
     name='anitopy',
@@ -9,6 +14,7 @@ setup(
     author_email='igorcesconm@gmail.com',
     url='https://github.com/igorcmoura/anitopy',
     python_requires='>=2.7',
+    install_requires=REQUIRED_PACKAGES,
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)',

@@ -1,2 +1,4 @@
+-r requirements.txt
+
 flake8==3.4.1
 twine==1.9.1
