@@ -73,7 +73,7 @@ class KeywordManager:
 
         self.add(ElementCategory.FILE_EXTENSION, options_default, [
             '3GP', 'AVI', 'DIVX', 'FLV', 'M2TS', 'MKV', 'MOV', 'MP4', 'MPG',
-            'OGM', 'RM', 'RMVB', 'WEBM', 'WMV'])
+            'OGM', 'RM', 'RMVB', 'TS', 'WEBM', 'WMV'])
         self.add(ElementCategory.FILE_EXTENSION, options_invalid, [
             'AAC', 'AIFF', 'FLAC', 'M4A', 'MP3', 'MKA', 'OGG', 'WAV', 'WMA',
             '7Z', 'RAR', 'ZIP',
