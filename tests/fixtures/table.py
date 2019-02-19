@@ -1994,6 +1994,17 @@ table = [
             'release_group': 'HorribleSubs',
             'video_resolution': '720p'
         }
+    ], [
+        '[HorribleSubs] Mob Psycho 100 S02 - 07 [1080p]',
+        None,
+        {
+            'anime_title': 'Mob Psycho 100',
+            'episode_number': '07',
+            'anime_season': '02',
+            'file_name': '[HorribleSubs] Mob Psycho 100 S02 - 07 [1080p]',
+            'release_group': 'HorribleSubs',
+            'video_resolution': '1080p',
+        }
     ],
 
 ###############################################################################
