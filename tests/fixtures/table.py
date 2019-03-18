@@ -111,6 +111,7 @@ table = [
         {
             'anime_title': 'Mobile Suit Gundam 00 S2',
             'audio_term': 'AAC',
+            'anime_season': '2',
             'episode_number': '01',
             'file_checksum': '4863FBE8',
             'file_extension': 'mkv',
@@ -547,6 +548,7 @@ table = [
         'Ookiku Furikabutte S2 - 09 (Central Anime) [BD841253].mkv',
         None,
         {
+            'anime_season': '2',
             'anime_title': 'Ookiku Furikabutte S2',
             'episode_number': '09',
             'file_checksum': 'BD841253',
@@ -719,6 +721,7 @@ table = [
         '[SFW]_Queen\'s_Blade_S2',
         None,
         {
+            'anime_season': '2',
             'anime_title': 'Queen\'s Blade S2',
             'file_name': '[SFW]_Queen\'s_Blade_S2',
             'id': 6633,
@@ -1395,6 +1398,7 @@ table = [
         {
             'anime_title': 'Kuroko no Basuke S3',
             'episode_number': '01',
+            'anime_season': '3',
             'episode_number_alt': '51',
             'file_checksum': '619C57A0',
             'file_extension': 'mkv',
@@ -1993,6 +1997,17 @@ table = [
             'file_name': '[HorribleSubs] Momokuri - 01+02 [720p]',
             'release_group': 'HorribleSubs',
             'video_resolution': '720p'
+        }
+    ], [
+        '[HorribleSubs] Mob Psycho 100 S2 - 07 [1080p]',
+        None,
+        {
+            'anime_title': 'Mob Psycho 100 S2',
+            'episode_number': '07',
+            'anime_season': '2',
+            'file_name': '[HorribleSubs] Mob Psycho 100 S2 - 07 [1080p]',
+            'release_group': 'HorribleSubs',
+            'video_resolution': '1080p',
         }
     ],
 

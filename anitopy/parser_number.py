@@ -197,6 +197,18 @@ def match_season_and_episode_pattern(word, token):
     return False
 
 
+def match_season_pattern(word, token):
+    pattern = 'S?(\\d{1,2})(?:-S?(\\d{1,2}))?'
+    match = re.match(pattern, word, flags=re.IGNORECASE)
+
+    if match:
+        Elements.insert(ElementCategory.ANIME_SEASON, match.group(1))
+        if match.group(2):
+            Elements.insert(ElementCategory.ANIME_SEASON, match.group(2))
+
+    return False
+
+
 def match_type_and_episode_pattern(word, token):
     number_begin = parser_helper.find_number_in_string(word)
     prefix = word[:number_begin]
@@ -318,6 +330,11 @@ def match_episode_patterns(word, token):
     # e.g. "#01", "#02-03v2"
     if numeric_back:
         if match_number_sign_pattern(word, token):
+            return True
+
+    # e.g. "S01"
+    if numeric_back and not numeric_front:
+        if match_season_pattern(word, token):
             return True
     # U+8A71 is used as counter for stories, episodes of TV series, etc.
     if numeric_front:
