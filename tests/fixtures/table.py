@@ -109,7 +109,7 @@ table = [
         '[Conclave-Mendoi]_Mobile_Suit_Gundam_00_S2_-_01v2_[1280x720_H.264_AAC][4863FBE8].mkv',  # noqa E501
         None,
         {
-            'anime_title': 'Mobile Suit Gundam 00 S2',
+            'anime_title': 'Mobile Suit Gundam 00',
             'audio_term': 'AAC',
             'anime_season': '2',
             'episode_number': '01',
@@ -548,8 +548,8 @@ table = [
         'Ookiku Furikabutte S2 - 09 (Central Anime) [BD841253].mkv',
         None,
         {
+            'anime_title': 'Ookiku Furikabutte',
             'anime_season': '2',
-            'anime_title': 'Ookiku Furikabutte S2',
             'episode_number': '09',
             'file_checksum': 'BD841253',
             'file_extension': 'mkv',
@@ -721,8 +721,8 @@ table = [
         '[SFW]_Queen\'s_Blade_S2',
         None,
         {
+            'anime_title': 'Queen\'s Blade',
             'anime_season': '2',
-            'anime_title': 'Queen\'s Blade S2',
             'file_name': '[SFW]_Queen\'s_Blade_S2',
             'id': 6633,
             'release_group': 'SFW'
@@ -1396,7 +1396,7 @@ table = [
         '[Hatsuyuki]_Kuroko_no_Basuke_S3_-_01_(51)_[720p][10bit][619C57A0].mkv',  # noqa E501
         None,
         {
-            'anime_title': 'Kuroko no Basuke S3',
+            'anime_title': 'Kuroko no Basuke',
             'episode_number': '01',
             'anime_season': '3',
             'episode_number_alt': '51',
@@ -1998,17 +1998,6 @@ table = [
             'release_group': 'HorribleSubs',
             'video_resolution': '720p'
         }
-    ], [
-        '[HorribleSubs] Mob Psycho 100 S2 - 07 [1080p]',
-        None,
-        {
-            'anime_title': 'Mob Psycho 100 S2',
-            'episode_number': '07',
-            'anime_season': '2',
-            'file_name': '[HorribleSubs] Mob Psycho 100 S2 - 07 [1080p]',
-            'release_group': 'HorribleSubs',
-            'video_resolution': '1080p',
-        }
     ],
 
 ###############################################################################
@@ -2020,7 +2009,19 @@ table = [
             'anime_title': 'Tsuredure Children',
             'episode_number': '1',
             'episode_title': 'Confession',
-            'file_name': 'Tsuredure Children Episódio 1 – Confession'  # noqa E501
+            'file_name': 'Tsuredure Children Episódio 1 – Confession'
+        }
+    ], [
+        '[HorribleSubs] Mob Psycho 100 S2 - 07 [1080p].mkv',
+        None,
+        {
+            'anime_title': 'Mob Psycho 100',
+            'episode_number': '07',
+            'anime_season': '2',
+            'file_name': '[HorribleSubs] Mob Psycho 100 S2 - 07 [1080p].mkv',
+            'file_extension': 'mkv',
+            'release_group': 'HorribleSubs',
+            'video_resolution': '1080p'
         }
     ]
 ]

@@ -34,7 +34,7 @@ class KeywordManager:
         self._keys = {}
 
         self.add(ElementCategory.ANIME_SEASON_PREFIX, options_unidentifiable, [
-            'SAISON', 'SEASON'])
+            'S', 'SAISON', 'SEASON'])
 
         self.add(ElementCategory.ANIME_TYPE, options_unidentifiable, [
             'GEKIJOUBAN', 'MOVIE',

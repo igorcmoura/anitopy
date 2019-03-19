@@ -92,13 +92,15 @@ def number_comes_after_prefix(category, token):
     if keyword:
         number = token.content[number_begin:]
         if category == ElementCategory.EPISODE_PREFIX:
-            if not match_episode_patterns(number, token):
-                set_episode_number(number, token, validate=False)
-            return True
+            if match_episode_patterns(number, token):
+                return True
+            return set_episode_number(number, token, validate=False)
         if category == ElementCategory.VOLUME_PREFIX:
-            if not match_volume_patterns(number, token):
-                set_volume_number(number, token, validate=False)
-            return True
+            if match_volume_patterns(number, token):
+                return True
+            return set_volume_number(number, token, validate=False)
+        if category == ElementCategory.ANIME_SEASON_PREFIX:
+            return set_season_number(number, token)
 
     return False
 
@@ -134,6 +136,9 @@ def search_for_episode_patterns(tokens):
                 return True
             if number_comes_after_prefix(
                     ElementCategory.VOLUME_PREFIX, token):
+                continue
+            if number_comes_after_prefix(
+                    ElementCategory.ANIME_SEASON_PREFIX, token):
                 continue
         else:
             # e.g. "8 & 10", "01 of 24"
@@ -193,18 +198,6 @@ def match_season_and_episode_pattern(word, token):
         if match.group(4):
             set_episode_number(match.group(4), token, validate=False)
         return True
-
-    return False
-
-
-def match_season_pattern(word, token):
-    pattern = 'S?(\\d{1,2})(?:-S?(\\d{1,2}))?'
-    match = re.match(pattern, word, flags=re.IGNORECASE)
-
-    if match:
-        Elements.insert(ElementCategory.ANIME_SEASON, match.group(1))
-        if match.group(2):
-            Elements.insert(ElementCategory.ANIME_SEASON, match.group(2))
 
     return False
 
@@ -331,11 +324,6 @@ def match_episode_patterns(word, token):
     if numeric_back:
         if match_number_sign_pattern(word, token):
             return True
-
-    # e.g. "S01"
-    if numeric_back and not numeric_front:
-        if match_season_pattern(word, token):
-            return True
     # U+8A71 is used as counter for stories, episodes of TV series, etc.
     if numeric_front:
         if match_japanese_counter_pattern(word, token):
@@ -410,6 +398,17 @@ def match_volume_patterns(word, token):
             return True
 
     return False
+
+###############################################################################
+
+
+def set_season_number(number, token):
+    if not number.isdigit():
+        return False
+
+    Elements.insert(ElementCategory.ANIME_SEASON, number)
+    token.category = TokenCategory.IDENTIFIER
+    return True
 
 ###############################################################################
 
