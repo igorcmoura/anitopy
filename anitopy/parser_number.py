@@ -425,7 +425,7 @@ def search_for_equivalent_numbers(tokens):
             continue
         next_token = Tokens.find_next(
             next_token, TokenFlags.ENCLOSED | TokenFlags.NOT_DELIMITER)
-        if next_token.category != TokenCategory.UNKNOWN:
+        if next_token is None or next_token.category != TokenCategory.UNKNOWN:
             continue
 
         # Check if it's an isolated number
