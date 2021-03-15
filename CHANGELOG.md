@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.1] - 2021-03-14
+### Fixed
+- Numbers not related to the episode number enclosed by brackets at the end of the filename caused an AttributeError while trying to parse one of the episode number patterns.
+
 ## [2.0.0] - 2019-03-19
 ### Changed
 - The season pattern `S<number>` is now parsed and removed from the title.
@@ -55,7 +59,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Working parser for the majority of anime filenames.
 
-[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/igorcmoura/anitopy/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/igorcmoura/anitopy/compare/v1.3.0...v2.0.0
 [1.3.0]: https://github.com/igorcmoura/anitopy/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/igorcmoura/anitopy/compare/v1.1.0...v1.2.0
