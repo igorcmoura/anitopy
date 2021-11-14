@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.0.2] - 2021-11-14
 ### Fixed
 - Parsing a filename containing the same anime type repeated once or more was causing a KeyError if this type was also parsed as a title.
 
@@ -61,7 +63,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Working parser for the majority of anime filenames.
 
-[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/igorcmoura/anitopy/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/igorcmoura/anitopy/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/igorcmoura/anitopy/compare/v1.3.0...v2.0.0
 [1.3.0]: https://github.com/igorcmoura/anitopy/compare/v1.2.0...v1.3.0
