@@ -2023,6 +2023,18 @@ table = [
             'release_group': 'HorribleSubs',
             'video_resolution': '1080p'
         }
+    ], [
+        'One-Punch Man Season 1 OVA [Judas] OVA - 05.mkv',
+        None,
+        {
+            'anime_title': 'One-Punch Man',
+            'anime_type': ['OVA', 'OVA'],
+            'episode_number': '05',
+            'anime_season': '1',
+            'file_name': 'One-Punch Man Season 1 OVA [Judas] OVA - 05.mkv',
+            'file_extension': 'mkv',
+            'release_group': 'Judas'
+        }
     ]
 ]
 

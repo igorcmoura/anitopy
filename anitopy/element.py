@@ -104,7 +104,9 @@ class Elements:
 
     @classmethod
     def erase(cls, category):
-        del cls.instance()._elements[category.value]
+        elements = cls.instance()._elements
+        if category.value in elements:
+            del elements[category.value]
 
     @classmethod
     def remove(cls, category, content):
