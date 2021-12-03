@@ -58,7 +58,8 @@ class KeywordManager:
             'FLAC', 'FLACX2', 'FLACX3', 'FLACX4', 'LOSSLESS', 'MP3', 'OGG',
             'VORBIS',
             # Audio language
-            'DUALAUDIO', 'DUAL AUDIO'])
+            'DUALAUDIO', 'DUAL AUDIO', 'DUAL-AUDIO',
+            'MULTIAUDIO', 'MULTI AUDIO', 'MULTI-AUDIO'])
 
         self.add(ElementCategory.DEVICE_COMPATIBILITY, options_default, [
             'IPAD3', 'IPHONE5', 'IPOD', 'PS3', 'XBOX', 'XBOX360'])
@@ -108,7 +109,8 @@ class KeywordManager:
 
         self.add(ElementCategory.SUBTITLES, options_default, [
             'ASS', 'BIG5', 'DUB', 'DUBBED', 'HARDSUB', 'HARDSUBS', 'RAW',
-            'SOFTSUB', 'SOFTSUBS', 'SUB', 'SUBBED', 'SUBTITLED'])
+            'SOFTSUB', 'SOFTSUBS', 'SUB', 'SUBBED', 'SUBTITLED',
+            'MULTIPLE SUBTITLE', 'MULTI SUBS', 'MULTI-SUBS'])
 
         self.add(ElementCategory.VIDEO_TERM, options_default, [
             # Frame rate
@@ -150,9 +152,10 @@ class KeywordManager:
     @staticmethod
     def peek(string):
         entries = [
-            (ElementCategory.AUDIO_TERM, ['Dual Audio']),
+            (ElementCategory.AUDIO_TERM, ['Dual Audio', 'Multi Audio']),
             (ElementCategory.VIDEO_TERM, ['H264', 'H.264', 'h264', 'h.264']),
             (ElementCategory.VIDEO_RESOLUTION, ['480p', '720p', '1080p']),
+            (ElementCategory.SUBTITLES, ['Multiple Subtitle', 'Multi Subs']),
             (ElementCategory.SOURCE, ['Blu-Ray'])
         ]
 
