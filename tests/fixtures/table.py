@@ -2035,6 +2035,60 @@ table = [
             'file_extension': 'mkv',
             'release_group': 'Judas'
         }
+    ], [
+        '[Reaktor] Serial Experiments Lain - E01 [1080p][x265][10-bit][Dual-Audio].mkv', # noqa E501
+        None,
+        {
+            'anime_title': 'Serial Experiments Lain',
+            'audio_term': 'Dual-Audio',
+            'episode_number': '01',
+            'file_extension': 'mkv',
+            'file_name': '[Reaktor] Serial Experiments Lain - E01 [1080p][x265][10-bit][Dual-Audio].mkv', # noqa E501
+            'release_group': 'Reaktor',
+            'video_resolution': '1080p',
+            'video_term': ['x265', '10-bit']
+        }
+    ], [
+        '[fong] Lupin III - Kutabare! Nostradamus [BDrip.1080p.10bit.MultiAudio].mkv', # noqa E501
+        None,
+        {
+            'anime_title': 'Lupin III - Kutabare! Nostradamus',
+            'audio_term': 'MultiAudio',
+            'file_extension': 'mkv',
+            'file_name': '[fong] Lupin III - Kutabare! Nostradamus [BDrip.1080p.10bit.MultiAudio].mkv', # noqa E501
+            'release_group': 'fong',
+            'source': 'BDrip',
+            'video_resolution': '1080p',
+            'video_term': '10bit'
+        }
+    ], [
+        '[DragsterPS] Devilman Crybaby S01E04 [720p] [Multi-Audio] [Multi-Subs] [24B349D4].mkv', # noqa E501
+        None,
+        {
+            'anime_season': '01',
+            'anime_title': 'Devilman Crybaby',
+            'audio_term': 'Multi-Audio',
+            'episode_number': '04',
+            'file_checksum': '24B349D4',
+            'file_extension': 'mkv',
+            'file_name': '[DragsterPS] Devilman Crybaby S01E04 [720p] [Multi-Audio] [Multi-Subs] [24B349D4].mkv', # noqa E501
+            'release_group': 'DragsterPS',
+            'subtitles': 'Multi-Subs',
+            'video_resolution': '720p'
+        }
+    ], [
+        '[Erai-raws] One Piece - 1000 [1080p][Multiple Subtitle][F2AE5FF6].mkv', # noqa E501
+        None,
+        {
+            'anime_title': 'One Piece',
+            'episode_number': '1000',
+            'file_checksum': 'F2AE5FF6',
+            'file_extension': 'mkv',
+            'file_name': '[Erai-raws] One Piece - 1000 [1080p][Multiple Subtitle][F2AE5FF6].mkv', # noqa E501
+            'release_group': 'Erai-raws',
+            'subtitles': 'Multiple Subtitle',
+            'video_resolution': '1080p'
+        }
     ]
 ]
 
