@@ -8,7 +8,7 @@ if sys.version_info < (3, 4):
 setup(
     name='anitopy',
     packages=['anitopy'],
-    version='2.0.2',
+    version='2.1.0',
     description='An anime video filename parser',
     author='Igor Cescon de Moura',
     author_email='igorcesconm@gmail.com',

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.0] - 2021-12-03
+### Added
+- Support for new keywords for audio and subtitles: DUAL-AUDIO, MULTIAUDIO, MULTI AUDIO, MULTI-AUDIO, MULTIPLE SUBTITLE, MULTI SUBS and MULTI-SUBS.
+
 ## [2.0.2] - 2021-11-14
 ### Fixed
 - Parsing a filename containing the same anime type repeated once or more was causing a KeyError if this type was also parsed as a title.
@@ -63,7 +67,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Working parser for the majority of anime filenames.
 
-[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/igorcmoura/anitopy/compare/v2.0.2...v2.1.0
 [2.0.2]: https://github.com/igorcmoura/anitopy/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/igorcmoura/anitopy/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/igorcmoura/anitopy/compare/v1.3.0...v2.0.0
