@@ -77,8 +77,7 @@ class Tokenizer:
                 # Tokenize the text between the preidentified tokens
                 self._tokenize_by_delimiters(
                     text[last_token_end_pos:token_begin_pos], enclosed)
-            self._add_token(TokenCategory.IDENTIFIER, enclosed,
-                            text[token_begin_pos:token_end_pos])
+            self._add_token(TokenCategory.IDENTIFIER, text[token_begin_pos:token_end_pos], enclosed)
             last_token_end_pos = token_end_pos
 
         if last_token_end_pos != len(text):
