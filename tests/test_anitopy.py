@@ -40,7 +40,7 @@ class TestAnitopy(TestCase):
 
             try:
                 print('Index %d "%s"' % (index, filename))
-            except:
+            except:  # noqa: E722
                 print(('Index %d "%s"' % (index, filename)).encode("utf-8"))
 
             elements = anitopy.parse(filename, options=options)
