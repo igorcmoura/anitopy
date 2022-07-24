@@ -187,7 +187,8 @@ def match_multi_episode_pattern(word, token):
 
 def match_season_and_episode_pattern(word, token):
     pattern = 'S?(\\d{1,2})(?:-S?(\\d{1,2}))?' +\
-              '(?:x|[ ._-x]?E)(\\d{1,3})(?:-E?(\\d{1,3}))?$'
+              '(?:x|[ ._-x]?E)(\\d{1,3})(?:-E?(\\d{1,3}))?' +\
+              '(?:[vV](\\d))?$'
     match = re.match(pattern, word, flags=re.IGNORECASE)
 
     if match:
@@ -197,6 +198,8 @@ def match_season_and_episode_pattern(word, token):
         set_episode_number(match.group(3), token, validate=False)
         if match.group(4):
             set_episode_number(match.group(4), token, validate=False)
+        if match.group(5):
+            Elements.insert(ElementCategory.RELEASE_VERSION, match.group(5))
         return True
 
     return False
@@ -304,7 +307,7 @@ def match_episode_patterns(word, token):
     if numeric_front and numeric_back:
         if match_multi_episode_pattern(word, token):
             return True
-    # e.g. "2x01", "S01E03", "S01-02xE001-150"
+    # e.g. "2x01", "S01E03", "S01-02xE001-150", "S01E06v2"
     if numeric_back:
         if match_season_and_episode_pattern(word, token):
             return True

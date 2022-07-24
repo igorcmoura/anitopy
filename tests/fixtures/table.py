@@ -2089,6 +2089,18 @@ table = [
             'subtitles': 'Multiple Subtitle',
             'video_resolution': '1080p'
         }
+    ], [
+        '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
+        None,
+        {
+            'anime_title': 'Aharen-san wa Hakarenai',
+            'anime_season': '01',
+            'episode_number': '06',
+            'release_version': '2',
+            'file_extension': 'mkv',
+            'file_name': '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
+            'release_group': 'Judas'
+        }
     ]
 ]
 
