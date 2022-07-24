@@ -1,6 +1,9 @@
+from pathlib import Path
+from setuptools import setup
 import sys
-from distutils.core import setup
 
+
+LONG_DESCRIPTION = Path('README.rst').read_text()
 REQUIRED_PACKAGES = []
 if sys.version_info < (3, 4):
     REQUIRED_PACKAGES.append('enum34')
@@ -10,6 +13,8 @@ setup(
     packages=['anitopy'],
     version='2.1.0',
     description='An anime video filename parser',
+    long_description=LONG_DESCRIPTION,
+    long_description_content_type='text/x-rst',
     author='Igor Cescon de Moura',
     author_email='igorcesconm@gmail.com',
     url='https://github.com/igorcmoura/anitopy',
