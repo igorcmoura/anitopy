@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.1.1] - 2022-07-24
 ### Fixed
 - Fix a bug where the pattern `S<number>E<number>v<number>` was not being parsed correctly due to the version at the end.
 
@@ -69,7 +71,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Working parser for the majority of anime filenames.
 
-[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/igorcmoura/anitopy/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/igorcmoura/anitopy/compare/v2.1.0...HEAD
 [2.1.0]: https://github.com/igorcmoura/anitopy/compare/v2.0.2...v2.1.0
 [2.0.2]: https://github.com/igorcmoura/anitopy/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/igorcmoura/anitopy/compare/v2.0.0...v2.0.1
