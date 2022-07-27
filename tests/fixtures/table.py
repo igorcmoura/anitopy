@@ -2101,6 +2101,17 @@ table = [
             'file_name': '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
             'release_group': 'Judas'
         }
+    ], [
+        '[Judas] One Piece - 1009v2.mkv',
+        None,
+        {
+            'anime_title': 'One Piece',
+            'episode_number': '1009',
+            'release_version': '2',
+            'file_extension': 'mkv',
+            'file_name': '[Judas] One Piece - 1009v2.mkv',
+            'release_group': 'Judas'
+        }
     ]
 ]
 

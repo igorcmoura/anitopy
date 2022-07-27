@@ -11,7 +11,7 @@ if sys.version_info < (3, 4):
 setup(
     name='anitopy',
     packages=['anitopy'],
-    version='2.1.1',
+    version='2.1.2rc1',
     description='An anime video filename parser',
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/x-rst',

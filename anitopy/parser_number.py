@@ -154,7 +154,7 @@ def search_for_episode_patterns(tokens):
 
 
 def match_single_episode_pattern(word, token):
-    pattern = '(\\d{1,3})[vV](\\d)$'
+    pattern = '(\\d{1,4})[vV](\\d)$'
     match = re.match(pattern, word)
     if match:
         set_episode_number(match.group(1), token, validate=False)
@@ -165,7 +165,7 @@ def match_single_episode_pattern(word, token):
 
 
 def match_multi_episode_pattern(word, token):
-    pattern = '(\\d{1,3})(?:[vV](\\d))?[-~&+](\\d{1,3})(?:[vV](\\d))?$'
+    pattern = '(\\d{1,4})(?:[vV](\\d))?[-~&+](\\d{1,4})(?:[vV](\\d))?$'
     match = re.match(pattern, word)
     if match:
         lower_bound = match.group(1)
@@ -187,7 +187,7 @@ def match_multi_episode_pattern(word, token):
 
 def match_season_and_episode_pattern(word, token):
     pattern = 'S?(\\d{1,2})(?:-S?(\\d{1,2}))?' +\
-              '(?:x|[ ._-x]?E)(\\d{1,3})(?:-E?(\\d{1,3}))?' +\
+              '(?:x|[ ._-x]?E)(\\d{1,4})(?:-E?(\\d{1,4}))?' +\
               '(?:[vV](\\d))?$'
     match = re.match(pattern, word, flags=re.IGNORECASE)
 
@@ -261,7 +261,7 @@ def match_number_sign_pattern(word, token):
     if word[0] != '#':
         return False
 
-    pattern = '#(\\d{1,3})(?:[-~&+](\\d{1,3}))?(?:[vV](\\d))?$'
+    pattern = '#(\\d{1,4})(?:[-~&+](\\d{1,4}))?(?:[vV](\\d))?$'
     match = re.match(pattern, word)
 
     if match:
@@ -280,7 +280,7 @@ def match_japanese_counter_pattern(word, token):
     if word[-1] != '\u8A71':
         return False
 
-    pattern = '(\\d{1,3})\u8A71$'
+    pattern = '(\\d{1,4})\u8A71$'
     match = re.match(pattern, word)
 
     if match:
