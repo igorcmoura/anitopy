@@ -1998,6 +1998,18 @@ table = [
             'release_group': 'HorribleSubs',
             'video_resolution': '720p'
         }
+    ], [
+        '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
+        None,
+        {
+            'anime_title': 'Jade Dynasty',
+            'anime_year': '2022',
+            'episode_number': '11',
+            'file_name': '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
+            'release_group': 'GM-Team',
+            'video_resolution': '4K',
+            'video_term': 'HEVC'
+        }
     ],
 
     ###########################################################################
@@ -2612,18 +2624,6 @@ failing_table = [
             ],
             'video_resolution': '1080i',
             'volume_number': '03'
-        }
-    ], [
-        '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
-        None,
-        {
-            'anime_title': 'Jade Dynasty',
-            'anime_year': '2022',
-            'episode_number': '11',
-            'file_name': '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
-            'release_group': 'GM-Team',
-            'video_resolution': '4K',
-            'video_term': 'HEVC'
         }
     ]
 ]
