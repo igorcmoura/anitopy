@@ -67,7 +67,7 @@ def is_mostly_latin_string(string):
 
 
 def is_resolution(string):
-    pattern = '\\d{3,4}([pP]|([xX\u00D7]\\d{3,4}))$'
+    pattern = '\\d{3,4}([pP]|([xX\u00D7]\\d{3,4}))$|^[248]K$'
     return bool(re.match(pattern, string))
 
 
