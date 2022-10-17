@@ -5,7 +5,8 @@ from __future__ import unicode_literals
 from unittest import TestCase
 
 import anitopy
-from tests.fixtures.table import table, failing_table
+from tests.fixtures.failing_table import failing_table
+from tests.fixtures.table import table
 
 
 class TestAnitopy(TestCase):
