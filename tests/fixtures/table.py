@@ -1998,18 +1998,6 @@ table = [
             'release_group': 'HorribleSubs',
             'video_resolution': '720p'
         }
-    ], [
-        '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
-        None,
-        {
-            'anime_title': 'Jade Dynasty',
-            'anime_year': '2022',
-            'episode_number': '11',
-            'file_name': '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
-            'release_group': 'GM-Team',
-            'video_resolution': '4K',
-            'video_term': 'HEVC'
-        }
     ],
 
     ###########################################################################
@@ -2123,6 +2111,18 @@ table = [
             'file_extension': 'mkv',
             'file_name': '[Judas] One Piece - 1009v2.mkv',
             'release_group': 'Judas'
+        }
+    ], [
+        '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
+        None,
+        {
+            'anime_title': 'Jade Dynasty',
+            'anime_year': '2022',
+            'episode_number': '11',
+            'file_name': '[GM-Team][国漫][诛仙][Jade Dynasty][2022][11][HEVC][GB][4K]',
+            'release_group': 'GM-Team',
+            'video_resolution': '4K',
+            'video_term': 'HEVC'
         }
     ]
 ]
