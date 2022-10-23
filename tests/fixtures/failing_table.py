@@ -1,5 +1,5 @@
 failing_table = [
-    # Tests took from anitomy on 19/09/2017 (day/month/year)
+    # Tests took from anitomy on 2022-10-23
     [
         '[BakaWolf-m.3.3.w] Special A 01 (H.264) [C83164B9].mkv',
         None,

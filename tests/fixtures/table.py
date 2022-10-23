@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 table = [
-    # Tests took from anitomy on 19/09/2017 (day/month/year)
+    # Tests took from anitomy on 2022-10-23
     [
         '[TaigaSubs]_Toradora!_(2008)_-_01v2_-_Tiger_and_Dragon_[1280x720_H.264_FLAC][1234ABCD].mkv',  # noqa E501
         None,
@@ -1998,6 +1998,30 @@ table = [
             'release_group': 'HorribleSubs',
             'video_resolution': '720p'
         }
+    ], [
+        '[(´• ω •`)] Nintama Rantarou - S23E1821 - Buddhist Priest-sama is a Ninja.mkv',
+        None,
+        {
+            "anime_season": "23",
+            "anime_title": "Nintama Rantarou",
+            "episode_number": "1821",
+            "episode_title": "Buddhist Priest-sama is a Ninja",
+            "file_extension": "mkv",
+            "file_name": "[(´• ω •`)] Nintama Rantarou - S23E1821 - Buddhist Priest-sama is a Ninja.mkv",
+            "release_group": "(´• ω •`)"
+        }
+    ], [
+        '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
+        None,
+        {
+            'anime_title': 'Aharen-san wa Hakarenai',
+            'anime_season': '01',
+            'episode_number': '06',
+            'release_version': '2',
+            'file_extension': 'mkv',
+            'file_name': '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
+            'release_group': 'Judas'
+        }
     ],
 
     ###########################################################################
@@ -2088,18 +2112,6 @@ table = [
             'release_group': 'Erai-raws',
             'subtitles': 'Multiple Subtitle',
             'video_resolution': '1080p'
-        }
-    ], [
-        '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
-        None,
-        {
-            'anime_title': 'Aharen-san wa Hakarenai',
-            'anime_season': '01',
-            'episode_number': '06',
-            'release_version': '2',
-            'file_extension': 'mkv',
-            'file_name': '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
-            'release_group': 'Judas'
         }
     ], [
         '[Judas] One Piece - 1009v2.mkv',
