@@ -2022,6 +2022,21 @@ table = [
             'file_name': '[Judas] Aharen-san wa Hakarenai - S01E06v2.mkv',
             'release_group': 'Judas'
         }
+    ], [
+        '[0x539] Somali and the Forest Spirit - S01E01 (WEB 1080p Hi10P AAC) [BB7C6531].mkv',
+        None,
+        {
+            'anime_season': '01',
+            'anime_title': 'Somali and the Forest Spirit',
+            'audio_term': 'AAC',
+            'episode_number': '01',
+            'file_checksum': 'BB7C6531',
+            'file_extension': 'mkv',
+            'file_name': '[0x539] Somali and the Forest Spirit - S01E01 (WEB 1080p Hi10P AAC) [BB7C6531].mkv',
+            'release_group': '0x539',
+            'video_resolution': '1080p',
+            'video_term': 'Hi10P'
+        }
     ],
 
     ###########################################################################

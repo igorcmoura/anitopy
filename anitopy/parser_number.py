@@ -192,6 +192,8 @@ def match_season_and_episode_pattern(word, token):
     match = re.match(pattern, word, flags=re.IGNORECASE)
 
     if match:
+        if int(match.group(1)) == 0:
+            return False
         Elements.insert(ElementCategory.ANIME_SEASON, match.group(1))
         if match.group(2):
             Elements.insert(ElementCategory.ANIME_SEASON, match.group(2))

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Increased the maximum amount of numbers to be considered as an episode from 3 to 4 since One Piece and Detective Conan have more than 999 episodes.
+- In some cases a 0 was being parsed as the season number. For example, for the release group 0x539.
 
 ## [2.1.1] - 2022-07-24
 ### Fixed
