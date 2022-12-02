@@ -73,68 +73,46 @@ class ElementCategory(Enum):
 
 
 class Elements:
-    INSTANCE = None
-
     def __init__(self):
         self._elements = {}
         self._check_alt_number = False
 
-    @classmethod
-    def get_check_alt_number(cls):
-        return cls.instance()._check_alt_number
+    def get_check_alt_number(self):
+        return self._check_alt_number
 
-    @classmethod
-    def set_check_alt_number(cls, value):
-        cls.instance()._check_alt_number = value
+    def set_check_alt_number(self, value):
+        self._check_alt_number = value
 
-    @classmethod
-    def instance(cls):
-        if not cls.INSTANCE:
-            cls.INSTANCE = Elements()
-        return cls.INSTANCE
+    def insert(self, category, content):
+        self._elements.setdefault(category.value, []).append(content)
 
-    @classmethod
-    def clear(cls):
-        del cls.INSTANCE
-        cls.INSTANCE = None
-
-    @classmethod
-    def insert(cls, category, content):
-        cls.instance()._elements.setdefault(category.value, []).append(content)
-
-    @classmethod
-    def erase(cls, category):
-        elements = cls.instance()._elements
+    def erase(self, category):
+        elements = self._elements
         if category.value in elements:
             del elements[category.value]
 
-    @classmethod
-    def remove(cls, category, content):
-        elements = cls.instance()._elements
+    def remove(self, category, content):
+        elements = self._elements
         elements[category.value].remove(content)
         if len(elements[category.value]) == 0:
             del elements[category.value]
 
-    @classmethod
-    def contains(cls, category):
-        return bool(category.value in cls.instance()._elements.keys() and
-                    cls.instance()._elements[category.value])
+    def contains(self, category):
+        return bool(category.value in self._elements.keys() and
+                    self._elements[category.value])
 
-    @classmethod
-    def empty(cls):
-        return not bool(cls.instance()._elements)
+    def empty(self):
+        return not bool(self._elements)
 
-    @classmethod
-    def get(cls, category):
-        return cls.instance()._elements.get(
+    def get(self, category):
+        return self._elements.get(
             category.value, '' if ElementCategory.is_singular(category)
             else [])
 
-    @classmethod
-    def get_dictionary(cls):
+    def get_dictionary(self):
         # Convert single element lists to the element itself
         elements = dict([
             (category, value[0]) if len(value) == 1 else (category, value)
-            for category, value in cls.instance()._elements.items()
+            for category, value in self._elements.items()
         ])
         return elements

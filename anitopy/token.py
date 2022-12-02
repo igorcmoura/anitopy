@@ -93,62 +93,41 @@ class Token:
 
 
 class Tokens:
-    INSTANCE = None
-
     def __init__(self):
         self._tokens = []
 
-    @classmethod
-    def instance(cls):
-        if not cls.INSTANCE:
-            cls.INSTANCE = Tokens()
-        return cls.INSTANCE
+    def empty(self):
+        return len(self._tokens) == 0
 
-    @classmethod
-    def clear(cls):
-        del cls.INSTANCE
-        cls.INSTANCE = None
+    def append(self, token):
+        self._tokens.append(token)
 
-    @classmethod
-    def empty(cls):
-        return len(cls.instance()._tokens) == 0
+    def insert(self, index, token):
+        self._tokens.insert(index, token)
 
-    @classmethod
-    def append(cls, token):
-        cls.instance()._tokens.append(token)
+    def update(self, tokens):
+        self._tokens = tokens
 
-    @classmethod
-    def insert(cls, index, token):
-        cls.instance()._tokens.insert(index, token)
+    def get(self, index):
+        return self._tokens[index]
 
-    @classmethod
-    def update(cls, tokens):
-        cls.instance()._tokens = tokens
-
-    @classmethod
-    def get(cls, index):
-        return cls.instance()._tokens[index]
-
-    @classmethod
-    def get_list(cls, flags=None, begin=None, end=None):
-        tokens = cls.instance()._tokens
-        begin_index = 0 if begin is None else cls.get_index(begin)
-        end_index = len(tokens) if end is None else cls.get_index(end)
+    def get_list(self, flags=None, begin=None, end=None):
+        tokens = self._tokens
+        begin_index = 0 if begin is None else self.get_index(begin)
+        end_index = len(tokens) if end is None else self.get_index(end)
         if flags is None:
             return tokens[begin_index:end_index+1]
         else:
             return [token for token in tokens[begin_index:end_index+1]
                     if token.check_flags(flags)]
 
-    @classmethod
-    def get_index(cls, token):
-        return cls.instance()._tokens.index(token)
+    def get_index(self, token):
+        return self._tokens.index(token)
 
-    @classmethod
-    def distance(cls, token_begin, token_end):
-        begin_index = 0 if token_begin is None else cls.get_index(token_begin)
-        end_index = len(cls.instance()._tokens) if token_end is None else \
-            cls.get_index(token_end)
+    def distance(self, token_begin, token_end):
+        begin_index = 0 if token_begin is None else self.get_index(token_begin)
+        end_index = len(self._tokens) if token_end is None else \
+            self.get_index(token_end)
         return end_index - begin_index
 
     @staticmethod
@@ -158,24 +137,21 @@ class Tokens:
                 return token
         return None
 
-    @classmethod
-    def find(cls, flags):
-        return cls._find_in_tokens(cls.instance()._tokens, flags)
+    def find(self, flags):
+        return self._find_in_tokens(self._tokens, flags)
 
-    @classmethod
-    def find_previous(cls, token, flags):
-        tokens = cls.instance()._tokens
+    def find_previous(self, token, flags):
+        tokens = self._tokens
         if token is None:
             tokens = tokens[::-1]
         else:
-            token_index = cls.get_index(token)
+            token_index = self.get_index(token)
             tokens = tokens[token_index-1::-1]
-        return cls._find_in_tokens(tokens, flags)
+        return self._find_in_tokens(tokens, flags)
 
-    @classmethod
-    def find_next(cls, token, flags):
-        tokens = cls.instance()._tokens
+    def find_next(self, token, flags):
+        tokens = self._tokens
         if token is not None:
-            token_index = cls.get_index(token)
+            token_index = self.get_index(token)
             tokens = tokens[token_index+1:]
-        return cls._find_in_tokens(tokens, flags)
+        return self._find_in_tokens(tokens, flags)
