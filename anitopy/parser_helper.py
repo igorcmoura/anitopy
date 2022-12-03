@@ -5,8 +5,8 @@ from __future__ import unicode_literals, absolute_import
 import re
 import unicodedata as ud
 
-from anitopy.element import ElementCategory, Elements
-from anitopy.token import TokenCategory, TokenFlags, Tokens
+from anitopy.element import ElementCategory
+from anitopy.token import TokenCategory, TokenFlags
 
 DASHES = '-\u2010\u2011\u2012\u2013\u2014\u2015'
 
@@ -71,20 +71,20 @@ def is_resolution(string):
     return bool(re.match(pattern, string))
 
 
-def check_anime_season_keyword(token):
+def check_anime_season_keyword(elements, parsed_tokens, token):
     def set_anime_season(first, second, content):
-        Elements.insert(ElementCategory.ANIME_SEASON, content)
+        elements.insert(ElementCategory.ANIME_SEASON, content)
         first.category = TokenCategory.IDENTIFIER
         second.category = TokenCategory.IDENTIFIER
 
-    previous_token = Tokens.find_previous(token, TokenFlags.NOT_DELIMITER)
+    previous_token = parsed_tokens.find_previous(token, TokenFlags.NOT_DELIMITER)
     if previous_token:
         number = get_number_from_ordinal(previous_token.content)
         if number:
             set_anime_season(previous_token, token, number)
             return True
 
-    next_token = Tokens.find_next(token, TokenFlags.NOT_DELIMITER)
+    next_token = parsed_tokens.find_next(token, TokenFlags.NOT_DELIMITER)
     if next_token and next_token.content.isdigit():
         set_anime_season(token, next_token, next_token.content)
         return True
@@ -92,12 +92,12 @@ def check_anime_season_keyword(token):
     return False
 
 
-def is_token_isolated(token):
-    previous_token = Tokens.find_previous(token, TokenFlags.NOT_DELIMITER)
+def is_token_isolated(parsed_tokens, token):
+    previous_token = parsed_tokens.find_previous(token, TokenFlags.NOT_DELIMITER)
     if previous_token.category != TokenCategory.BRACKET:
         return False
 
-    next_token = Tokens.find_next(token, TokenFlags.NOT_DELIMITER)
+    next_token = parsed_tokens.find_next(token, TokenFlags.NOT_DELIMITER)
     if next_token.category != TokenCategory.BRACKET:
         return False
 
@@ -106,11 +106,11 @@ def is_token_isolated(token):
 ###############################################################################
 
 
-def build_element(category, token_begin=None, token_end=None,
+def build_element(elements, parsed_tokens, category, token_begin=None, token_end=None,
                   keep_delimiters=False):
     element = ''
 
-    for token in Tokens.get_list(begin=token_begin, end=token_end):
+    for token in parsed_tokens.get_list(begin=token_begin, end=token_end):
         if token.category == TokenCategory.UNKNOWN:
             element += token.content
             token.category = TokenCategory.IDENTIFIER
@@ -130,4 +130,4 @@ def build_element(category, token_begin=None, token_end=None,
         element = element.strip(' ' + DASHES)
 
     if element:
-        Elements.insert(category, element)
+        elements.insert(category, element)

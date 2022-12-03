@@ -5,20 +5,22 @@ from __future__ import unicode_literals, absolute_import
 import re
 
 from anitopy.keyword import keyword_manager
-from anitopy.token import TokenCategory, TokenFlags, Token, Tokens
+from anitopy.token import TokenCategory, TokenFlags, Token
 
 
 class Tokenizer:
-    def __init__(self, filename, options):
+    def __init__(self, filename, options, elements, tokens):
         self.filename = filename
         self.options = options
+        self.elements = elements
+        self.tokens = tokens
 
     def tokenize(self):
         self._tokenize_by_brackets()
-        return not Tokens.empty()
+        return not self.tokens.empty()
 
     def _add_token(self, category, content, enclosed):
-        Tokens.append(Token(category, content, enclosed))
+        self.tokens.append(Token(category, content, enclosed))
 
     def _tokenize_by_brackets(self):
         brackets = [
@@ -52,7 +54,7 @@ class Tokenizer:
             else:
                 # Looking for the matching bracket allows us to better handle
                 # some rare cases with nested brackets.
-                bracket_index = text.find(matching_bracket)
+                bracket_index = text.find(matching_bracket) if matching_bracket is not None else -1
 
             if bracket_index != 0:  # Found a token before the bracket
                 self._tokenize_by_preidentified(
@@ -69,7 +71,7 @@ class Tokenizer:
                 text = ''
 
     def _tokenize_by_preidentified(self, text, enclosed):
-        preidentified_tokens = keyword_manager.peek(text)
+        preidentified_tokens = keyword_manager.peek(self.elements, text)
 
         last_token_end_pos = 0
         for token_begin_pos, token_end_pos in preidentified_tokens:
@@ -103,10 +105,10 @@ class Tokenizer:
 
     def _validate_delimiter_tokens(self):
         def find_previous_valid_token(token):
-            return Tokens.find_previous(token, TokenFlags.VALID)
+            return self.tokens.find_previous(token, TokenFlags.VALID)
 
         def find_next_valid_token(token):
-            return Tokens.find_next(token, TokenFlags.VALID)
+            return self.tokens.find_next(token, TokenFlags.VALID)
 
         def is_delimiter_token(token):
             return token is not None and \
@@ -124,7 +126,7 @@ class Tokenizer:
             append_to.content += token.content
             token.category = TokenCategory.INVALID
 
-        for token in Tokens.get_list():
+        for token in self.tokens.get_list():
             if token.category != TokenCategory.DELIMITER:
                 continue
 
@@ -174,7 +176,7 @@ class Tokenizer:
                         append_token_to(token, prev_token)
                         append_token_to(next_token, prev_token)  # e.g. "01+02"
 
-        Tokens.update([
-            token for token in Tokens.get_list()
+        self.tokens.update([
+            token for token in self.tokens.get_list()
             if token.category != TokenCategory.INVALID
         ])

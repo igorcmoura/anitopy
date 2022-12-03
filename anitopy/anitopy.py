@@ -20,18 +20,18 @@ default_options = {
 
 
 def parse(filename, options=default_options):
-    Elements.clear()
-    Tokens.clear()
+    elements = Elements()
+    tokens = Tokens()
 
     # Add missing options
     for key, value in default_options.items():
         options.setdefault(key, value)
 
-    Elements.insert(ElementCategory.FILE_NAME, filename)
+    elements.insert(ElementCategory.FILE_NAME, filename)
     if options['parse_file_extension']:
         filename, extension = remove_extension_from_filename(filename)
         if extension:
-            Elements.insert(ElementCategory.FILE_EXTENSION, extension)
+            elements.insert(ElementCategory.FILE_EXTENSION, extension)
 
     if options['ignored_strings']:
         filename = remove_ignored_strings_from_filename(
@@ -40,15 +40,15 @@ def parse(filename, options=default_options):
     if not filename:
         return None
 
-    tokenizer = Tokenizer(filename, options)
+    tokenizer = Tokenizer(filename, options, elements, tokens)
     if not tokenizer.tokenize():
         return None
 
-    parser = Parser(options)
+    parser = Parser(options, elements, tokens)
     if not parser.parse():
         return None
 
-    return Elements.get_dictionary()
+    return elements.get_dictionary()
 
 
 def remove_extension_from_filename(filename):

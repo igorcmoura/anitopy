@@ -4,7 +4,7 @@ from __future__ import unicode_literals, absolute_import
 
 import unicodedata as ud
 
-from anitopy.element import ElementCategory, Elements
+from anitopy.element import ElementCategory
 
 
 class KeywordOption:
@@ -150,7 +150,7 @@ class KeywordManager:
         return keyword
 
     @staticmethod
-    def peek(string):
+    def peek(elements, string):
         entries = [
             (ElementCategory.AUDIO_TERM, ['Dual Audio', 'Multi Audio']),
             (ElementCategory.VIDEO_TERM, ['H264', 'H.264', 'h264', 'h.264']),
@@ -165,7 +165,7 @@ class KeywordManager:
             for keyword in keywords:
                 keyword_begin_pos = string.find(keyword)
                 if keyword_begin_pos != -1:  # Found the keyword in the string
-                    Elements.insert(category, keyword)
+                    elements.insert(category, keyword)
 
                     keyword_end_pos = keyword_begin_pos + len(keyword)
                     preidentified_tokens.append(
