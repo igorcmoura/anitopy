@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import annotations
 
-from typing import Dict, List, Optional
+from typing import List, Optional, Tuple
 from typing_extensions import TypedDict
 
 from anitopy.anitopy import default_options
@@ -32,3 +34,9 @@ class ParserResult(TypedDict, total=False):
 
 
 def parse(filename: str, options: ParserOptions = default_options) -> Optional[ParserResult]: ...
+
+
+def remove_extension_from_filename(filename: str) -> Tuple[str, Optional[str]]: ...
+
+
+def remove_ignored_strings_from_filename(filename: str, ignored_strings: List[str]) -> str: ...
