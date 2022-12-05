@@ -12,7 +12,7 @@ setup(
     name='anitopy',
     packages=['anitopy'],
     package_data={'anitopy': ['py.typed']},
-    version='2.2.0rc1',
+    version='2.2.0rc2',
     description='An anime video filename parser',
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/x-rst',
