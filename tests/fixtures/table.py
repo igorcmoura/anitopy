@@ -2151,5 +2151,32 @@ table = [
             'video_resolution': '4K',
             'video_term': 'HEVC'
         }
+    ], [
+        '[SanKyuu][神墓][Shen Mu][Tomb of Fallen Gods][2022][12][4K HEVC AAC]',
+        None,
+        {
+            'anime_title': 'Shen Mu',
+            'anime_year': '2022',
+            'audio_term': 'AAC',
+            'episode_number': '12',
+            'file_name': '[SanKyuu][神墓][Shen Mu][Tomb of Fallen Gods][2022][12][4K HEVC AAC]',
+            'release_group': 'SanKyuu',
+            'video_resolution': '4K',
+            'video_term': 'HEVC'
+        }
+    ], [
+        '[Baws] Violet Evergarden: The Movie v2 (BD 4k HEVC TrueHD) [Dual-Audio]',
+        None,
+        {
+            'anime_title': 'Violet Evergarden: The Movie',
+            'anime_type': 'Movie',
+            'audio_term': 'Dual-Audio',
+            'file_name': '[Baws] Violet Evergarden: The Movie v2 (BD 4k HEVC TrueHD) [Dual-Audio]',
+            'release_group': 'Baws',
+            'release_version': '2',
+            'source': 'BD',
+            'video_resolution': '4k',
+            'video_term': 'HEVC'
+        }
     ]
 ]

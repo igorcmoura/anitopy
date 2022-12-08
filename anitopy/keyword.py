@@ -154,7 +154,7 @@ class KeywordManager:
         entries = [
             (ElementCategory.AUDIO_TERM, ['Dual Audio', 'Multi Audio']),
             (ElementCategory.VIDEO_TERM, ['H264', 'H.264', 'h264', 'h.264']),
-            (ElementCategory.VIDEO_RESOLUTION, ['480p', '720p', '1080p']),
+            (ElementCategory.VIDEO_RESOLUTION, ['480p', '720p', '1080p', '4k', '4K']),
             (ElementCategory.SUBTITLES, ['Multiple Subtitle', 'Multi Subs']),
             (ElementCategory.SOURCE, ['Blu-Ray'])
         ]
