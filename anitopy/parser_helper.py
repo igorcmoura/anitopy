@@ -98,7 +98,7 @@ def is_token_isolated(parsed_tokens, token):
         return False
 
     next_token = parsed_tokens.find_next(token, TokenFlags.NOT_DELIMITER)
-    if next_token.category != TokenCategory.BRACKET:
+    if next_token is not None and next_token.category != TokenCategory.BRACKET:
         return False
 
     return True
