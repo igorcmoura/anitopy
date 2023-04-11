@@ -25,7 +25,7 @@ class TestAnitopy(TestCase):
             filename = entry[0]
             options = self.parse_options(entry[1])
 
-            elements = anitopy.parse(filename, options=options)
+            elements = anitopy.parse(filename, options=options)  # type: ignore
 
             expected = dict(entry[2])
             if 'id' in expected.keys():
@@ -44,7 +44,7 @@ class TestAnitopy(TestCase):
             except:  # noqa: E722
                 print(('Index %d "%s"' % (index, filename)).encode("utf-8"))
 
-            elements = anitopy.parse(filename, options=options)
+            elements = anitopy.parse(filename, options=options)  # type: ignore
 
             expected = dict(entry[2])
             if 'id' in expected.keys():
