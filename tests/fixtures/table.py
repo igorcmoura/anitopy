@@ -2151,5 +2151,14 @@ table = [
             'video_resolution': '4K',
             'video_term': 'HEVC'
         }
-    ]
+    ], [
+        "[M-L-Stuffs] Futari wa Precure (Pretty Cure) 01",
+        None,
+        {
+            'anime_title': 'Futari wa Precure (Pretty Cure)',
+            'episode_number': '01',
+            'file_name': "[M-L-Stuffs] Futari wa Precure (Pretty Cure) 01",
+            'release_group': 'M-L-Stuffs'
+        }
+    ],
 ]
